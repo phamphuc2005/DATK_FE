@@ -1,0 +1,394 @@
+@media only screen and (min-width: 1300px){
+
+.public-layout {
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  /* background: rgb(225 220 197); */
+}
+
+.sidebar-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: calc(100vh - 10px);
+  padding-top: 10px;
+  overflow: auto;
+}
+
+.sidebar-content .sidebar-content-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.sidebar-content .customer-info-box {
+  height: 100%;
+  width: 30%;
+  border-radius: 10px;
+  /* background-color: rgb(173, 209, 239); */
+  background-color: #eee;
+}
+
+.sidebar-content .customer-info-box .customer-name-box {
+  display: flex;
+  justify-content: space-around;
+  height: 200px;
+  align-items: center;
+  /* border-bottom: 1px solid black; */
+  padding: 0 10px;
+}
+
+.customer-info-box .customer-name-box .drop-menu {
+  /* display: none; */
+  border: 1px solid black;
+  padding: 5px;
+  background-color: white;
+  cursor: pointer;
+  font-size: 24px;
+  border-radius: 5px;
+}
+
+.customer-info-box .customer-name-box .drop-menu:hover {
+  opacity: 0.8;
+}
+
+.customer-info-box .customer-name-box img {
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  /* border-radius: 50%; */
+}
+
+.customer-info-box .customer-name-box .customer-name h1 {
+  margin: 0;
+  padding: 0 20px 10px 20px;
+  border-bottom: 2px solid green;
+  color: green;
+  font-weight: 700;
+  font-size: 26px;
+}
+
+.customer-info-box .customer-name-box .customer-name p {
+  text-align: center;
+  margin-top: 10px;
+  font-weight: 700;
+  color: green;
+}
+
+.customer-info-box .customer-info {
+  padding: 30px 0px;
+  margin: 0px 20px;
+  border-bottom: 2px solid white;
+  border-top: 2px solid white;
+
+}
+
+.customer-info-box .customer-info p {
+  font-size: 20px;
+}
+
+.customer-info-box .customer-info-button {
+  margin-top: 10px;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.customer-info-box .customer-info-button a,
+.customer-info-box .customer-info-button button {
+  text-decoration: none;
+  text-align: center;
+  width: 48%;
+  padding: 10px;
+  border-radius: 5px;
+  border-width: 0;
+  cursor: pointer;
+}
+
+.customer-info-box .customer-info-button button {
+  background-color: red;
+  color: white;
+}
+
+.customer-info-box .customer-info-button button:hover {
+  opacity: 0.8;
+}
+
+.customer-info-box .customer-info-button .update-info {
+  background-color: gold;
+  color: white;
+}
+
+.customer-info-box .customer-info-button .update-info:hover {
+  opacity: 0.8;
+}
+
+.sidebar-content .content {
+  width: 67%;
+  height: 100%;
+  overflow: auto;
+  border-radius: 10px;
+  /* border-top: 20px solid rgb(133, 234, 210); */
+  border-top: 20px solid #eee;
+  border-bottom: 20px solid #eee;
+}
+}
+@media only screen and (max-width: 700px){
+  .sidebar-content .sidebar-content-wrapper {
+    width: 100%;
+    height: 100%;
+    /* display: flex; */
+    /* justify-content: space-around; */
+    /* align-items: center; */
+    padding: 10px;
+  }
+
+  .sidebar-content .customer-info-box {
+    height: 70%;
+    width: 100%;
+    border-radius: 10px;
+    /* background-color: rgb(173, 209, 239); */
+    background-color: #eee;
+    margin-bottom: 10px;
+  }
+
+  .sidebar-content .customer-info-box .customer-name-box {
+    display: flex;
+    justify-content: space-between;
+    height: 130px;
+    align-items: center;
+    /* border-bottom: 1px solid black; */
+    padding: 0 20px;
+  }
+
+  .customer-info-box .customer-name-box .drop-menu {
+    border: 1px solid black;
+    font-size: 30px;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 5px;
+    padding: 5px;
+  }
+  
+  .customer-info-box .customer-name-box img {
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    /* border-radius: 50%; */
+  }
+  
+  .customer-info-box .customer-name-box .customer-name h1 {
+    margin: 0;
+    padding: 0 20px 10px 20px;
+    border-bottom: 2px solid green;
+    color: green;
+    font-weight: 700;
+    font-size: 24px;
+  }
+  
+  .customer-info-box .customer-name-box .customer-name p {
+    text-align: center;
+    margin-top: 10px;
+    font-weight: 700;
+    color: green;
+  }
+
+  .customer-info-box .customer-info {
+    padding: 20px 10px;
+    margin: 0px 20px;
+    border-bottom: 2px solid white;
+    border-top: 2px solid white;
+    display: none;
+  }
+  
+  .customer-info-box .customer-info p {
+    font-size: 20px;
+  }
+  
+  .customer-info-box .customer-info-button {
+    /* margin-top: 10px; */
+    padding: 10px 0 20px;
+    text-align: center;
+    display: none;
+  }
+  
+  .customer-info-box .customer-info-button a,
+  .customer-info-box .customer-info-button button {
+    text-decoration: none;
+    text-align: center;
+    width: 48%;
+    padding: 10px;
+    border-radius: 5px;
+    border-width: 0;
+    cursor: pointer;
+  }
+  
+  .customer-info-box .customer-info-button button {
+    background-color: red;
+    color: white;
+  }
+  
+  .customer-info-box .customer-info-button button:hover {
+    opacity: 0.8;
+  }
+
+  .sidebar-content .content {
+    /* width: 67%; */
+    min-height: 575px;
+    /* overflow: auto; */
+    border-radius: 10px;
+    /* border-top: 20px solid rgb(133, 234, 210); */
+    border-top: 20px solid #eee;
+    border-bottom: 20px solid #eee;
+    background-color: #eee;
+  }
+}
+
+@media only screen and (min-width: 700px) and (max-width: 1300px){
+  .public-layout {
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    /* background: rgb(225 220 197); */
+  }
+  
+  .sidebar-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: calc(100vh - 10px);
+    padding-top: 10px;
+    overflow: auto;
+  }
+  
+  .sidebar-content .sidebar-content-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .sidebar-content .customer-info-box {
+    height: 100%;
+    width: 30%;
+    border-radius: 10px;
+    /* background-color: rgb(173, 209, 239); */
+    background-color: #eee;
+  }
+  
+  .sidebar-content .customer-info-box .customer-name-box {
+    /* display: flex; */
+    /* justify-content: space-around; */
+    /* height: 200px; */
+    /* align-items: center; */
+    /* border-bottom: 1px solid black; */
+    padding: 20px;
+    text-align: center;
+  }
+
+  .customer-info-box .customer-name-box .drop-menu {
+    /* display: none; */
+    float: left;
+    border: 1px solid black;
+    padding: 5px;
+    background-color: white;
+    font-size: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .ant-dropdown {
+    left: 25px !important;
+  }
+
+  .customer-info-box .customer-name-box .drop-menu:hover {
+    opacity: 0.8;
+  }
+  
+  .customer-info-box .customer-name-box img {
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    /* border-radius: 50%; */
+    margin-bottom: 10px;
+  }
+  
+  .customer-info-box .customer-name-box .customer-name h1 {
+    margin: 0;
+    padding: 0 0px 10px 0px;
+    border-bottom: 2px solid green;
+    color: green;
+    font-weight: 700;
+    font-size: 22px;
+  }
+  
+  .customer-info-box .customer-name-box .customer-name p {
+    text-align: center;
+    margin-top: 10px;
+    font-weight: 700;
+    color: green;
+    font-size: 14px;
+  }
+  
+  .customer-info-box .customer-info {
+    padding: 30px 0px;
+    margin: 0px 20px;
+    border-bottom: 2px solid white;
+    border-top: 2px solid white;
+  
+  }
+  
+  .customer-info-box .customer-info p {
+    font-size: 14px;
+  }
+  
+  .customer-info-box .customer-info-button {
+    margin-top: 10px;
+    padding: 20px 0;
+    text-align: center;
+  }
+  
+  .customer-info-box .customer-info-button a,
+  .customer-info-box .customer-info-button button {
+    text-decoration: none;
+    text-align: center;
+    width: 54%;
+    padding: 10px;
+    border-radius: 5px;
+    border-width: 0;
+    cursor: pointer;
+  }
+  
+  .customer-info-box .customer-info-button button {
+    background-color: red;
+    color: white;
+  }
+  
+  .customer-info-box .customer-info-button button:hover {
+    opacity: 0.8;
+  }
+  
+  .customer-info-box .customer-info-button .update-info {
+    background-color: gold;
+    color: white;
+  }
+  
+  .customer-info-box .customer-info-button .update-info:hover {
+    opacity: 0.8;
+  }
+  
+  .sidebar-content .content {
+    width: 67%;
+    height: 100%;
+    overflow: auto;
+    border-radius: 10px;
+    /* border-top: 20px solid rgb(133, 234, 210); */
+    border-top: 20px solid #eee;
+    border-bottom: 20px solid #eee;
+  }
+}

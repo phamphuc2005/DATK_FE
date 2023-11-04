@@ -1,0 +1,260 @@
+@media only screen and (min-width: 700px){
+.device-item {
+  /* height: 130px; */
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.device_item {
+  /* height: 130px; */
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.device-item:hover {
+  opacity: 0.8;
+}
+
+.device-item .text-content {
+  width: calc(100% - 100px);
+}
+
+.device_item .text_content {
+  width: calc(100% - 100px);
+}
+
+.device-item .device-item-text {
+  font-size: 20px;
+  margin-top: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
+  -webkit-box-orient: vertical;
+}
+
+.device_item .device_item_text {
+  font-size: 20px;
+  margin-top: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
+  -webkit-box-orient: vertical;
+}
+
+.device_item .trash-btn {
+  text-align: end;
+}
+
+.device_item .trash-btn .restore-btn {
+  border: none;
+  background-color: lawngreen;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  min-width: 135px;
+}
+
+.device_item .trash-btn .restore-btn:hover {
+  opacity: 0.8;
+}
+
+.device_item .trash-btn .delete-btn {
+  border: none;
+  background-color: red;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+  cursor: pointer;
+  min-width: 135px;
+
+}
+
+.device_item .trash-btn .delete-btn:hover {
+  opacity: 0.8;
+}
+
+.device-item .switch-button-box {
+  margin-left: 20px;
+  display: flex;
+}
+
+.switch-button {
+  margin: auto 0;
+  width: 80px;
+  height: 30px;
+  background-color: red;
+}
+
+.switch-button .ant-switch-handle {
+  width: 26px;
+  height: 26px;
+}
+
+.switch-button.ant-switch-checked .ant-switch-handle {
+  inset-inline-start: calc(100% - 28px) !important;
+}
+
+.switch-button.ant-switch-checked .ant-switch-inner .ant-switch-inner-checked {
+  /* margin-inline-start: 0; */
+  margin-inline-end: 28px;
+}
+
+.switch-button .ant-switch-handle::before {
+  border-radius: 50%;
+  background: url('../../../public/Image/istockphoto-905157380-612x612.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.switch-button .ant-switch-inner .ant-switch-inner-unchecked,
+.switch-button .ant-switch-inner .ant-switch-inner-checked {
+  font-size: 20px !important;
+  padding-top: 2px;
+}
+}
+
+@media only screen and (max-width: 700px){
+  .device-item {
+    /* height: 130px; */
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+  
+  .device_item {
+    /* height: 130px; */
+    background-color: white;
+    border-radius: 10px;
+    /* display: flex; */
+    /* justify-content: space-between; */
+    padding: 20px;
+    cursor: pointer;
+    /* margin-bottom: 10px; */
+  }
+  
+  .device-item:hover {
+    opacity: 0.8;
+  }
+  
+  .device-item .text-content {
+    width: calc(100% - 100px);
+  }
+  
+  .device_item .text_content {
+    width: calc(100% - 100px);
+  }
+  
+  .device-item .device-item-text {
+    font-size: 20px;
+    margin-top: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* number of lines to show */
+    -webkit-box-orient: vertical;
+  }
+  
+  .device_item .device_item_text {
+    font-size: 20px;
+    margin-top: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* number of lines to show */
+    -webkit-box-orient: vertical;
+  }
+  
+  .device_item .trash-btn {
+    /* text-align: end; */
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .device_item .trash-btn .restore-btn {
+    border: none;
+    background-color: lawngreen;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    min-width: 135px;
+  }
+  
+  .device_item .trash-btn .restore-btn:hover {
+    opacity: 0.8;
+  }
+  
+  .device_item .trash-btn .delete-btn {
+    border: none;
+    background-color: red;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    /* margin-top: 10px; */
+    cursor: pointer;
+    min-width: 135px;
+  
+  }
+  
+  .device_item .trash-btn .delete-btn:hover {
+    opacity: 0.8;
+  }
+  
+  .device-item .switch-button-box {
+    margin-left: 20px;
+    display: flex;
+  }
+  
+  .switch-button {
+    margin: auto 0;
+    width: 80px;
+    height: 30px;
+    background-color: red;
+  }
+  
+  .switch-button .ant-switch-handle {
+    width: 26px;
+    height: 26px;
+  }
+  
+  .switch-button.ant-switch-checked .ant-switch-handle {
+    inset-inline-start: calc(100% - 28px) !important;
+  }
+  
+  .switch-button.ant-switch-checked .ant-switch-inner .ant-switch-inner-checked {
+    /* margin-inline-start: 0; */
+    margin-inline-end: 28px;
+  }
+  
+  .switch-button .ant-switch-handle::before {
+    border-radius: 50%;
+    background: url('../../../public/Image/istockphoto-905157380-612x612.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+  .switch-button .ant-switch-inner .ant-switch-inner-unchecked,
+  .switch-button .ant-switch-inner .ant-switch-inner-checked {
+    font-size: 20px !important;
+    padding-top: 2px;
+  }
+}

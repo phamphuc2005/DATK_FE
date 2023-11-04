@@ -1,0 +1,56 @@
+/* html {
+  background: url('../../../public/Image/login-background.jpg') center center no-repeat fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100%;
+} */
+
+.space {
+  height: 30px;
+}
+
+.white-box-page {
+  display: flex;
+  flex-direction: column;
+  background: #eee;
+  width: calc(100% - 50px);
+  max-width: 500px;
+  height: max-content;
+  margin: 40px auto;
+  padding: 30px;
+  border-radius: 20px;
+  /* border: 1px solid #ddd; */
+  /* box-shadow: 0 0px 10px rgba(0, 0, 0, .5); */
+}
+
+.white-box-page .box-title {
+  /* color: #666; */
+  font-size: 26pt;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.white-box-page .box-text {
+  text-align: center;
+  font-size: 13pt;
+  border-top: 1px solid black;
+  padding-top: 20px;
+}
+
+.white-box-page .box-input {
+  width: 100%;
+  /* max-width: 400px; */
+  border: 1px solid white;
+  font-size: 14px;
+  position: relative;
+  z-index: 1000;
+}
+
+.white-box-page .box-button {
+  width: 100%;
+  margin-top: 10px;
+  float: right;
+}

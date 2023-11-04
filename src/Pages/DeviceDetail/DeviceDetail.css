@@ -1,0 +1,286 @@
+@media only screen and (min-width: 700px){
+.device-detail {
+  padding: 0 20px !important;
+}
+
+/* .device-detail.box-warning {
+  background-color: rgb(210, 112, 112);
+} */
+
+.device-detail .delete-button {
+  margin: 40px 0 0 0;
+  /* float: right; */
+}
+
+.device-detail .id-content {
+  /* margin-top: 10px; */
+  margin-bottom: 10px;
+}
+
+.device-detail .text-content {
+  font-size: 20px;
+}
+
+.device-detail .name-content {
+  display: flex;
+  align-items: center;
+}
+
+.device-detail .name-content button {
+  margin-left: 20px;
+  padding: 7px 10px;
+  border-radius: 5px;
+  border-width: 0;
+  background-color: gold;
+  cursor: pointer;
+  width: max-content;
+  color: white;
+}
+
+.device-detail .name-content button:hover{
+  opacity: 0.8;
+}
+
+.device-detail .name-content .update-name {
+  position: relative;
+  /* margin-bottom: 200px; */
+}
+
+.device-detail .name-content .update-name .update-name-box {
+  position: absolute;
+  z-index: 1000;
+  top: calc(100% + 10px);
+  left: 20px;
+  padding: 20px;
+  background-color: white;
+  display: flex;
+  border-radius: 5px;
+}
+
+.device-detail .name-content .update-name .update-name-box.hide {
+  display: none;
+}
+
+.device-detail .name-content .update-name .update-name-box input{
+  border-radius: 5px;
+  border: 1px solid black;
+  padding-left: 10px;
+}
+
+.device-detail .param-content {
+  display: flex;
+  justify-content: space-between;
+  /* padding: 0 10px; */
+  margin-top: 10px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.device-detail .grid-chart-content {
+  margin: 10px 0px 0 0px;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  background-color: #eee;
+  /* border-radius: 10px; */
+}
+
+.device-detail .grid-chart-content h3 {
+  text-align: center;
+}
+
+.device-detail .grid-chart-content .chart-box {
+  /* border: 5px solid #eee; */
+  padding: 20px 10px 10px;
+  background-color: white;
+  border-radius: 20px;
+}
+
+.device-detail.box-warning .grid-chart-content .chart-box {
+  border-color: rgb(210, 112, 112);
+}
+
+.device-detail .device-info {
+  display: flex;
+  justify-content: space-between;
+  /* padding: 0 10px; */
+  margin-top: 20px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.device-detail .warning {
+  background-color: white;
+  /* color: rgb(245, 245, 70); */
+  color: red;
+  padding: 14px;
+  font-size: 30px;
+  font-weight: 900;
+  height: max-content;
+  font-style: italic;
+  animation: color 1s infinite;
+  -webkit-animation: color 1s infinite;
+  -moz-animation: color 1s infinite;
+  -o-animation: color 1s infinite;
+}
+
+.device-detail .warning.ok-state {
+  color: rgb(73, 221, 73) !important;
+}
+
+.device-detail .switch_button {
+  margin: auto 0;
+}
+
+@keyframes color {
+  50% {
+      color: gold;
+  }
+}
+}
+
+@media only screen and (max-width: 700px){
+  .device-detail {
+    padding: 0 20px !important;
+  }
+  
+  /* .device-detail.box-warning {
+    background-color: rgb(210, 112, 112);
+  } */
+  
+  .device-detail .delete-button {
+    margin: 40px 0 0 0;
+    /* float: right; */
+  }
+  
+  .device-detail .id-content {
+    /* margin-top: 10px; */
+    margin-bottom: 10px;
+  }
+  
+  .device-detail .text-content {
+    font-size: 20px;
+  }
+  
+  .device-detail .name-content {
+    display: flex;
+    align-items: center;
+  }
+  
+  .device-detail .name-content button {
+    margin-left: 20px;
+    padding: 7px 10px;
+    border-radius: 5px;
+    border-width: 0;
+    background-color: gold;
+    cursor: pointer;
+    width: max-content;
+    color: white;
+  }
+  
+  .device-detail .name-content button:hover{
+    opacity: 0.8;
+  }
+  
+  .device-detail .name-content .update-name {
+    position: relative;
+    /* margin-bottom: 200px; */
+  }
+  
+  .device-detail .name-content .update-name .update-name-box {
+    position: absolute;
+    z-index: 1000;
+    top: calc(100% + 10px);
+    left: 20px;
+    padding: 20px;
+    background-color: white;
+    display: flex;
+    border-radius: 5px;
+  }
+  
+  .device-detail .name-content .update-name .update-name-box.hide {
+    display: none;
+  }
+  
+  .device-detail .name-content .update-name .update-name-box input{
+    border-radius: 5px;
+    border: 1px solid black;
+    padding-left: 10px;
+  }
+  
+  .device-detail .param-content {
+    display: flex;
+    justify-content: space-between;
+    /* padding: 0 10px; */
+    margin-top: 10px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .device-detail .grid-chart-content {
+    margin: 10px 0px 0 0px;
+    display: grid;
+    gap: 10px;
+    /* grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); */
+    background-color: #eee;
+    /* border-radius: 10px; */
+  }
+  
+  .device-detail .grid-chart-content h3 {
+    text-align: center;
+  }
+  
+  .device-detail .grid-chart-content .chart-box {
+    /* border: 5px solid #eee; */
+    padding: 20px 10px 10px;
+    background-color: white;
+    border-radius: 20px;
+  }
+  
+  .device-detail.box-warning .grid-chart-content .chart-box {
+    border-color: rgb(210, 112, 112);
+  }
+  
+  .device-detail .device-info {
+    /* display: flex; */
+    /* justify-content: space-between; */
+    /* padding: 0 10px; */
+    margin-top: 20px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .device-detail .warning {
+    background-color: white;
+    /* color: rgb(245, 245, 70); */
+    color: red;
+    padding: 14px;
+    font-size: 30px;
+    font-weight: 900;
+    height: max-content;
+    font-style: italic;
+    animation: color 1s infinite;
+    -webkit-animation: color 1s infinite;
+    -moz-animation: color 1s infinite;
+    -o-animation: color 1s infinite;
+    margin-bottom: 5px;
+  }
+  
+  .device-detail .warning.ok-state {
+    color: rgb(73, 221, 73) !important;
+  }
+
+  .device-detail .switch_button {
+    text-align: end;
+  }
+  
+  @keyframes color {
+    50% {
+        color: gold;
+    }
+  }  
+}

@@ -1,0 +1,55 @@
+/* 
+  - Không css cho 2 class page-component và component-title. Nếu muốn css đè thì thêm class vào element
+
+  - css cho file này thêm .update-info vào trước. VD: .update-info .example {}
+
+  - Xem trang Home để hiểu thêm
+*/
+
+.update-info .form-change-info {
+  padding: 20px 30px 80px 30px;
+}
+
+.update-info .box-text {
+  margin-left: 30px;
+  margin-top: 30px;
+  font-size: 18px;
+}
+
+.update-info .form-gender {
+  display: flex;
+  margin-top: 35px;
+}
+
+.update-info .form-gender h2 {
+  margin-right: 20px;
+}
+
+.update-info .form-select {
+  width: max-content;
+}
+
+.update-info .box-button {
+  float: right;
+  font-size: 16px;
+  height: max-content;
+  width: max-content;
+  padding: 10px 20px;
+  /* background-color: rgb(245, 245, 90); */
+  font-weight: 600;
+}
+
+.update-info .change-password {
+  margin-left: 30px;
+  font-size: 18px;
+}
+
+.update-info .change-password a {
+  text-decoration: underline;
+  cursor: pointer;
+  color: blue;
+}
+
+.update-info .change-password a:hover {
+  color: rgb(38, 38, 252);
+}
