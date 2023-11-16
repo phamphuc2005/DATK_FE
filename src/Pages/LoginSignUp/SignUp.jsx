@@ -1,6 +1,6 @@
 // import styled from "styled-components"
 import { useEffect, useState } from "react";
-import { Button, Form, Input } from "antd";
+import { Button, Form, Input, Modal } from "antd";
 import { useNavigate } from "react-router-dom";
 
 import "./LoginSignUp.css";
@@ -12,6 +12,8 @@ function SignUp() {
   const navigate = useNavigate();
   const [form] = Form.useForm();
   const [ errorMessage, setErrorMesssage ] = useState(null);
+  const [ data, setData ] = useState({});
+  const [ isShowModal, setIsShowModal ] = useState(false);
 
   useEffect(() => {
     if(localStorage.getItem('accessToken'))
@@ -33,10 +35,36 @@ function SignUp() {
       toast.error(error);
     }
     else {
-      toast.success('Đăng kí thành công');
-      navigate('/login');
+      setData(data);
+      setIsShowModal(true);
     }
   };
+
+  const ConfirmCode = async () => {
+    const code = document.getElementById('code').value;
+    if (code === '') { toast.warning('Cần nhập mã xác nhận!'); }
+    else {
+      let confirmCode = await postRequest('/confirm-register', {
+        code: code,
+        email: data.email,
+        password: data.password,
+        name: data.name,
+        phone: data.phone
+      })
+      const error = await confirmCode.message;
+        if (error) {
+          toast.error(error);
+        }
+        else {
+          toast.success('Đăng ký thành công!');
+          navigate('/login');
+        }
+    }
+  }
+
+  const CloseModal = () => {
+    setIsShowModal(false)
+  }
 
   return (
     <>
@@ -127,10 +155,21 @@ function SignUp() {
           </Form.Item>
         </Form>
       </div>
-      <ErrorMessage 
-        errorMessage={errorMessage} 
-        setErrorMesssage={setErrorMesssage}
-      />
+
+      <Modal
+        title="Mã xác nhận"
+        open={isShowModal} 
+        onOk={ConfirmCode} 
+        onCancel={CloseModal} 
+        okText="Xác nhận" 
+        cancelText="Hủy"
+        destroyOnClose
+      >
+        <div id='update-name-box' className="update-name-box">
+          <p style={{color:'red', fontStyle:'italic'}}>*Vui lòng truy cập email để lấy mã xác nhận!</p>
+          <Input id='code' placeholder='Nhập mã xác nhận'/>
+        </div>
+      </Modal>
     </>
   );
 }

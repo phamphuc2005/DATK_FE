@@ -33,7 +33,6 @@ function ForgotPassword() {
       toast.error(error);
     }
     else {
-      toast.info('Vui lòng truy cập email để lấy mã xác nhận!', {autoClose: false})
       setData(data)
       setIsShowModal(true)
     }
@@ -148,6 +147,7 @@ function ForgotPassword() {
         destroyOnClose
       >
         <div id='update-name-box' className="update-name-box">
+          <p style={{color:'red', fontStyle:'italic'}}>*Vui lòng truy cập email để lấy mã xác nhận!</p>
           <Input id='code' placeholder='Nhập mã xác nhận'/>
         </div>
       </Modal>

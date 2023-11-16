@@ -23,6 +23,8 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  gap: 10px;
+  padding: 0 10px;
 }
 
 .sidebar-content .customer-info-box {
@@ -127,7 +129,7 @@
 }
 
 .sidebar-content .content {
-  width: 67%;
+  width: 70%;
   height: 100%;
   overflow: auto;
   border-radius: 10px;
@@ -271,6 +273,8 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    gap: 5px;
+    padding: 0 10px;
   }
   
   .sidebar-content .customer-info-box {
@@ -383,7 +387,7 @@
   }
   
   .sidebar-content .content {
-    width: 67%;
+    width: 70%;
     height: 100%;
     overflow: auto;
     border-radius: 10px;
