@@ -61,8 +61,8 @@ function List() {
   return(
     <div className="device-list page-component">
       <Breadcrumb className='breadcrumb'>
-        <Breadcrumb.Item><a onClick={()=>(navigate('/'))}>Home</a></Breadcrumb.Item>
-        <Breadcrumb.Item className='current'>Devices List</Breadcrumb.Item>
+        <Breadcrumb.Item><a onClick={()=>(navigate('/'))}>Trang chủ</a></Breadcrumb.Item>
+        <Breadcrumb.Item className='current'>Danh sách thiết bị</Breadcrumb.Item>
       </Breadcrumb>
       <h1 className='component-title'> Danh sách thiết bị</h1>
       <div style={{display: 'flex', justifyContent: 'space-between', margin:'40px 20px 0 20px'}}>

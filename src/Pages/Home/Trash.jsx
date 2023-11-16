@@ -83,9 +83,9 @@ function Trash() {
   return(
     <div className="device-list page-component">
       <Breadcrumb className='breadcrumb'>
-        <Breadcrumb.Item><a onClick={()=>(navigate('/'))}>Home</a></Breadcrumb.Item>
-        <Breadcrumb.Item> <a onClick={()=>(navigate('/list-device'))}>Devices List</a></Breadcrumb.Item>
-        <Breadcrumb.Item className='current'>Trash</Breadcrumb.Item>
+        <Breadcrumb.Item><a onClick={()=>(navigate('/'))}>Trang chủ</a></Breadcrumb.Item>
+        <Breadcrumb.Item> <a onClick={()=>(navigate('/list-device'))}>Danh sách thiết bị</a></Breadcrumb.Item>
+        <Breadcrumb.Item className='current'>Thùng rác</Breadcrumb.Item>
       </Breadcrumb>
       <h1 className='component-title'> Thùng rác</h1>
       {allSystems.length > 0 ?

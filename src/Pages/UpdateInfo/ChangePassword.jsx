@@ -63,9 +63,9 @@ export default function ChangePassword() {
     <>
       <div className="update-info page-component">
         <Breadcrumb className='breadcrumb'>
-          <Breadcrumb.Item><a onClick={()=>(navigate('/'))}>Home</a></Breadcrumb.Item>
-          <Breadcrumb.Item> <a onClick={()=>(navigate('/update-info'))}>Account</a></Breadcrumb.Item>
-          <Breadcrumb.Item className='current'> Change Password</Breadcrumb.Item>
+          <Breadcrumb.Item><a onClick={()=>(navigate('/'))}>Trang chủ</a></Breadcrumb.Item>
+          <Breadcrumb.Item> <a onClick={()=>(navigate('/update-info'))}>Thông tin tài khoản</a></Breadcrumb.Item>
+          <Breadcrumb.Item className='current'> Đổi mật khẩu</Breadcrumb.Item>
         </Breadcrumb>
         <h1 className="component-title">Đổi mật khẩu</h1>
         <p className="box-text">Hãy điền đầy đủ thông tin để đổi mật khẩu!</p>

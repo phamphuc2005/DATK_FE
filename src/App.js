@@ -7,7 +7,7 @@ import Login from './Pages/LoginSignUp/Login';
 import { PUBLIC_ROUTER } from './Router/router';
 import './App.css';
 import SignUp from './Pages/LoginSignUp/SignUp';
-import ChangePassword from './Pages/UpdateInfo/ChangePassword';
+import ForgetPassword from './Pages/LoginSignUp/ForgotPassword';
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -19,6 +19,7 @@ function App() {
         <Route path='*' element={<NotFound/>}/>
         <Route path='/login' element={<Login />}/>
         <Route path='/signup' element={<SignUp />}/>
+        <Route path='/forget' element={<ForgetPassword />}/>
         {/* <Route path='/change-password' element={<ChangePassword/>}/> */}
         {PUBLIC_ROUTER.map(e =>
           <Route 

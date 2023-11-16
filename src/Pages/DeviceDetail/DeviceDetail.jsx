@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { WarningOutlined, CheckCircleOutlined } from '@ant-design/icons';
+import { WarningOutlined, CheckCircleOutlined, LoadingOutlined } from '@ant-design/icons';
 import { Breadcrumb, Button, Input, Modal, Switch } from 'antd';
 
 import './DeviceDetail.css';
@@ -19,25 +19,26 @@ export default function DeviceDetail() {
   const [ isShowUpdateName, setIsShowUpdateName ] = useState(false);
 
 
+  const GetSystem = async () => {
+    const data = await getRequest(`/system/${deviceID}`);
+    if (data) {
+      setSystem(data);
+      const { state } = data
+      if (state) {
+        setSysState(true);
+      } else setSysState(false);
+      if(data.message) navigate('*')
+    }
+  }
+
   useEffect(() => {
     if (!localStorage.getItem('accessToken')) {
       navigate('/login');
     }
-
-    const GetSystem = async () => {
-      const data = await getRequest(`/system/${deviceID}`);
-      if (data) {
-        setSystem(data);
-        const { state } = data
-        if (state) {
-          setSysState(true);
-        } else setSysState(false);
-        if(data.message) navigate('*')
-      }
-    }
+    // setInterval(GetSystem, 10000);
     GetSystem();
   }, [navigate, deviceID]);
-
+  
   useEffect(() => {
     const interval = setInterval(async () => {
       const data = await getRequest(`/system-params/${deviceID}`);
@@ -54,7 +55,7 @@ export default function DeviceDetail() {
       interval2 = setInterval(async () => {
         if (!flagBackground) {
           document.body.style.backgroundColor = 'red';
-          toast.error("Danger !!!", {autoClose: 10, hideProgressBar: true, transition: Zoom})
+          // toast.error("Danger !!!", {autoClose: 10, hideProgressBar: true, transition: Zoom})
       }
         else document.body.style.backgroundColor = 'white';
         flagBackground = !flagBackground
@@ -129,9 +130,9 @@ export default function DeviceDetail() {
   return (
     <div ref={boxWarning} className="device-detail page-component">
       <Breadcrumb className='breadcrumb' style={{marginLeft: '0px'}}>
-        <Breadcrumb.Item><a onClick={()=>(navigate('/'))}>Home</a></Breadcrumb.Item>
-        <Breadcrumb.Item> <a onClick={()=>(navigate('/list-device'))}>Devices List</a></Breadcrumb.Item>
-        <Breadcrumb.Item className='current'>Device Detail</Breadcrumb.Item>
+        <Breadcrumb.Item><a onClick={()=>(navigate('/'))}>Trang chủ</a></Breadcrumb.Item>
+        <Breadcrumb.Item> <a onClick={()=>(navigate('/list-device'))}>Danh sách thiết bị</a></Breadcrumb.Item>
+        <Breadcrumb.Item className='current'>Chi tiết thiết bị</Breadcrumb.Item>
       </Breadcrumb>
       <h1 className='component-title'>Chi tiết thiết bị</h1>
       <div style={{ display:'flex', justifyContent:'space-between'}}>
@@ -183,16 +184,31 @@ export default function DeviceDetail() {
             </div>
           </div>
         </div>
+
         {
-          val?.warning ?
-          <div className='warning'>
-            <WarningOutlined /> Nguy hiểm !!!
-          </div>
-          :
-          <div className='warning ok-state'>
-            <CheckCircleOutlined /> An toàn !
+          val.message && val.message === 'disconnect' ?
+          <div className='warning disconnect'>
+            <LoadingOutlined /> Mất kết nối !
+          </div> :
+          <div>
+          {sysState === false ?
+            <div className='warning'></div> :
+            <div>
+            {
+              val?.warning ?
+              <div className='warning'>
+                <WarningOutlined /> Nguy hiểm !!!
+              </div>
+              :
+              <div className='warning ok-state'>
+                <CheckCircleOutlined /> An toàn !
+              </div>
+            }
+            </div>
+          }  
           </div>
         }
+        
         <div className='switch_button'>
         {
           <Switch
@@ -203,22 +219,21 @@ export default function DeviceDetail() {
             onClick={ChangeState}
           />
         }
-
         </div>
         
       </div>
       <div className="param-content">
         <div className='text-content'>
-          <b>Nhiệt độ: </b> {val.temp}°C
+          <b>Nhiệt độ: </b> {val.temp} °C
         </div>
         <div className='text-content'>
-          <b>Độ ẩm: </b> {val.humid}%
+          <b>Độ ẩm: </b> {val.humid} %
         </div>
         <div className='text-content'>
           <b>Lửa: </b> {val.fire}
         </div>
         <div className='text-content'>
-          <b>Gas: </b> {val.gas}
+          <b>Gas: </b> {val.gas} PPM
         </div>
       </div>
       

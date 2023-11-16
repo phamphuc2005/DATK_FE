@@ -107,13 +107,13 @@ console.log(time);
       title: 'Nhiệt độ',
       dataIndex: 'temp',
       align: 'center',
-      render: (text) => `${text}°C`
+      render: (text) => `${text} °C`
     },
     {
       title: 'Độ ẩm',
       dataIndex: 'humid',
       align: 'center',
-      render: (text) => `${text}%`
+      render: (text) => `${text} %`
     },
     {
       title: 'Lửa',
@@ -124,6 +124,7 @@ console.log(time);
       title: 'Gas',
       dataIndex: 'gas',
       align: 'center',
+      render: (text) => `${text} PPM`
     },
   ];
 
@@ -135,9 +136,9 @@ console.log(time);
   return (
     <div ref={boxWarning} className="device-detail page-component">
       <Breadcrumb className='breadcrumb' style={{marginLeft: '0px'}}>
-        <Breadcrumb.Item><a onClick={()=>(navigate('/'))}>Home</a></Breadcrumb.Item>
-        <Breadcrumb.Item> <a onClick={()=>(navigate('/list-device'))}>Devices List</a></Breadcrumb.Item>
-        <Breadcrumb.Item className='current'>Device Detail</Breadcrumb.Item>
+        <Breadcrumb.Item><a onClick={()=>(navigate('/'))}>Trang chủ</a></Breadcrumb.Item>
+        <Breadcrumb.Item> <a onClick={()=>(navigate('/list-device'))}>Thống kê số liệu</a></Breadcrumb.Item>
+        <Breadcrumb.Item className='current'>Số liệu trung bình</Breadcrumb.Item>
       </Breadcrumb>
       <h1 className='component-title'>Số liệu trung bình</h1>
       <div style={{ display:'flex', justifyContent:'space-between'}}>

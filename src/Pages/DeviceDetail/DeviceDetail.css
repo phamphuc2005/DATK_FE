@@ -31,14 +31,16 @@
   padding: 7px 10px;
   border-radius: 5px;
   border-width: 0;
-  background-color: gold;
+  background-color: white;
   cursor: pointer;
   width: max-content;
-  color: white;
+  color: violet;
+  border: 2px solid violet;
 }
 
 .device-detail .name-content button:hover{
-  opacity: 0.8;
+  background-color: violet;
+  color: white;
 }
 
 .device-detail .name-content .update-name {
@@ -120,14 +122,18 @@
   font-weight: 900;
   height: max-content;
   font-style: italic;
-  animation: color 1s infinite;
+  /* animation: color 1s infinite;
   -webkit-animation: color 1s infinite;
   -moz-animation: color 1s infinite;
-  -o-animation: color 1s infinite;
+  -o-animation: color 1s infinite; */
 }
 
 .device-detail .warning.ok-state {
   color: rgb(73, 221, 73) !important;
+}
+
+.device-detail .warning.disconnect {
+  color: gold !important;
 }
 
 .device-detail .switch_button {
@@ -174,14 +180,16 @@
     padding: 7px 10px;
     border-radius: 5px;
     border-width: 0;
-    background-color: gold;
+    background-color: white;
     cursor: pointer;
     width: max-content;
-    color: white;
+    color: violet;
+    border: 2px solid violet;
   }
   
   .device-detail .name-content button:hover{
-    opacity: 0.8;
+    background-color: violet;
+    color: white;
   }
   
   .device-detail .name-content .update-name {
@@ -263,15 +271,19 @@
     font-weight: 900;
     height: max-content;
     font-style: italic;
-    animation: color 1s infinite;
+    margin-bottom: 5px;
+    /* animation: color 1s infinite;
     -webkit-animation: color 1s infinite;
     -moz-animation: color 1s infinite;
-    -o-animation: color 1s infinite;
-    margin-bottom: 5px;
+    -o-animation: color 1s infinite; */
   }
   
   .device-detail .warning.ok-state {
     color: rgb(73, 221, 73) !important;
+  }
+
+  .device-detail .warning.disconnect {
+    color: gold !important;
   }
 
   .device-detail .switch_button {

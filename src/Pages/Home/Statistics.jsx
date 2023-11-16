@@ -65,8 +65,8 @@ function Statistics() {
   return(
     <div className="device-list page-component">
       <Breadcrumb className='breadcrumb'>
-        <Breadcrumb.Item><a onClick={()=>(navigate('/'))}>Home</a></Breadcrumb.Item>
-        <Breadcrumb.Item className='current'>Statistics</Breadcrumb.Item>
+        <Breadcrumb.Item><a onClick={()=>(navigate('/'))}>Trang chủ</a></Breadcrumb.Item>
+        <Breadcrumb.Item className='current'>Thống kê số liệu</Breadcrumb.Item>
       </Breadcrumb>
       <h1 className='component-title'>Thống kê số liệu</h1>
       {allSystems.length > 0 ?

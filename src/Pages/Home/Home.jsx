@@ -32,7 +32,7 @@ function Trash() {
   return(
     <div className="device-list page-component">
       <Breadcrumb className='breadcrumb'>
-        <Breadcrumb.Item className='current'>Home</Breadcrumb.Item>
+        <Breadcrumb.Item className='current'>Trang chủ</Breadcrumb.Item>
       </Breadcrumb>
       <h1 className='component-title'> Trang chủ</h1>
       <div className='grid_container'>

@@ -68,8 +68,8 @@ export default function UpdateInfo() {
     <>
       <div className="update-info page-component">
         <Breadcrumb className='breadcrumb'>
-          <Breadcrumb.Item><a onClick={()=>(navigate('/'))}>Home</a></Breadcrumb.Item>
-          <Breadcrumb.Item className='current'> Account</Breadcrumb.Item>
+          <Breadcrumb.Item><a onClick={()=>(navigate('/'))}>Trang chủ</a></Breadcrumb.Item>
+          <Breadcrumb.Item className='current'> Thông tin tài khoản</Breadcrumb.Item>
         </Breadcrumb>
         <h1 className="component-title">Thông tin tài khoản</h1>
         <Form
