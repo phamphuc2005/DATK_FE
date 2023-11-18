@@ -107,13 +107,13 @@ console.log(time);
       title: 'Nhiệt độ',
       dataIndex: 'temp',
       align: 'center',
-      render: (text) => `${text} °C`
+      render: (text) => `${text}°C`
     },
     {
       title: 'Độ ẩm',
       dataIndex: 'humid',
       align: 'center',
-      render: (text) => `${text} %`
+      render: (text) => `${text}%`
     },
     {
       title: 'Lửa',
@@ -124,7 +124,6 @@ console.log(time);
       title: 'Gas',
       dataIndex: 'gas',
       align: 'center',
-      render: (text) => `${text} PPM`
     },
   ];
 

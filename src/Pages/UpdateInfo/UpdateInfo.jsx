@@ -111,16 +111,25 @@ export default function UpdateInfo() {
           </Form.Item>
           <Button
             className='box-button'
+            // htmlType='submit'
+            // type='primary'
+            onClick={()=>(navigate('/change-password'))}
+          >
+            Đổi mật khẩu
+          </Button>
+          <Button
+            className='box-button'
             htmlType='submit'
             type='primary'
+            style={{float:'right'}}
           >
             Chỉnh sửa
           </Button>
         </Form>
-        <p className='change-password'>
+        {/* <p className='change-password'>
           Bạn muốn đổi mật khẩu?&nbsp;
           <a  onClick={()=>(navigate('/change-password'))}>Đổi mật khẩu</a>
-        </p>
+        </p> */}
       </div>
       <ErrorMessage 
         errorMessage={errorMessage} 

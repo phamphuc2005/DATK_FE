@@ -68,9 +68,9 @@ export default function ChangePassword() {
           <Breadcrumb.Item className='current'> Đổi mật khẩu</Breadcrumb.Item>
         </Breadcrumb>
         <h1 className="component-title">Đổi mật khẩu</h1>
-        <p className="box-text">Hãy điền đầy đủ thông tin để đổi mật khẩu!</p>
+        {/* <p className="box-text">Hãy điền đầy đủ thông tin để đổi mật khẩu!</p> */}
         <Form className="form-change-info" form={form} onFinish={(value) => handleChangePassword(value)}>
-          <h2>Mật khẩu cũ</h2>
+          <h2>* Mật khẩu cũ</h2>
           <Form.Item
             name="oldPassword"
             rules={[
@@ -88,7 +88,7 @@ export default function ChangePassword() {
               size="large"
             />
           </Form.Item>
-          <h2>Mật khẩu mới</h2>
+          <h2>* Mật khẩu mới</h2>
           <Form.Item
             name="newPassword"
             rules={[
@@ -107,7 +107,7 @@ export default function ChangePassword() {
               style={{ zIndex: 1 }}
             />
           </Form.Item>
-          <h2>Xác nhận mật khẩu mới</h2>
+          <h2>* Xác nhận mật khẩu mới</h2>
           <Form.Item
             name="confirmPassword"
             dependencies={["newPassword"]}
@@ -128,8 +128,8 @@ export default function ChangePassword() {
               size="large"
             />
           </Form.Item>
-          <Form.Item>
-            <Button className="box-button" htmlType="submit" type="primary">
+          <Form.Item style={{marginBottom:'0'}}>
+            <Button className="box-button" htmlType="submit" type="primary" style={{float:'right'}}>
               Xác nhận
             </Button>
           </Form.Item>

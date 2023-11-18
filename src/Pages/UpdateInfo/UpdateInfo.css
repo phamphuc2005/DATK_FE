@@ -7,7 +7,10 @@
 */
 
 .update-info .form-change-info {
-  padding: 20px 30px 80px 30px;
+  padding: 20px 20px 40px 20px;
+  background-color: white;
+  margin: 40px 20px;
+  border-radius: 10px;
 }
 
 .update-info .box-text {
@@ -30,13 +33,14 @@
 }
 
 .update-info .box-button {
-  float: right;
+  /* float: right; */
   font-size: 16px;
   height: max-content;
   width: max-content;
   padding: 10px 20px;
   /* background-color: rgb(245, 245, 90); */
   font-weight: 600;
+  margin-top: 10px;
 }
 
 .update-info .change-password {

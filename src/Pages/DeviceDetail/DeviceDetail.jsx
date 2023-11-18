@@ -224,16 +224,16 @@ export default function DeviceDetail() {
       </div>
       <div className="param-content">
         <div className='text-content'>
-          <b>Nhiệt độ: </b> {val.temp} °C
+          <b>Nhiệt độ: </b> {val.temp}°C
         </div>
         <div className='text-content'>
-          <b>Độ ẩm: </b> {val.humid} %
+          <b>Độ ẩm: </b> {val.humid}%
         </div>
         <div className='text-content'>
           <b>Lửa: </b> {val.fire}
         </div>
         <div className='text-content'>
-          <b>Gas: </b> {val.gas} PPM
+          <b>Gas: </b> {val.gas}
         </div>
       </div>
       
