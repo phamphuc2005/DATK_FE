@@ -141,13 +141,13 @@ export default function DeviceDetail() {
             onClick={()=>{window.location.reload()}}
             size='large'
           ><ReloadOutlined />Làm mới</Button>
-          <Button 
+          {/* <Button 
             className='delete-button' 
             type="primary" 
             danger
             onClick={removeDevice}
             size='large'
-          ><DeleteOutlined />Xóa thiết bị</Button>
+          ><DeleteOutlined />Xóa thiết bị</Button> */}
       </div>
       <div className='device-info'>
         <div>
@@ -158,7 +158,7 @@ export default function DeviceDetail() {
             <div className='text-content'>
               <b>Tên thiết bị:</b> {system.name}
             </div>
-            <div className='update-name'>
+            {/* <div className='update-name'>
               <button onClick={OpenUpdateNameBox}><EditFilled /> Đổi tên</button>
               <Modal
                 title="Đổi tên"
@@ -171,17 +171,9 @@ export default function DeviceDetail() {
               >
                 <div id='update-name-box' className="update-name-box">
                   <Input id='new-device-name' placeholder='Nhập tên mới'/>
-                  {/* <button
-                    style={{ backgroundColor: 'rgb(73, 221, 73)', color: 'white' }}
-                    onClick={UpdateName}
-                  >Xác nhận</button> */}
-                  {/* <button
-                    style={{ backgroundColor: 'red', color: 'white' }}
-                    onClick={CloseUpdateNameBox}
-                  >Hủy</button> */}
                 </div>
               </Modal>
-            </div>
+            </div> */}
           </div>
         </div>
 

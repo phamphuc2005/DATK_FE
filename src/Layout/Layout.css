@@ -29,7 +29,7 @@
 
 .sidebar-content .customer-info-box {
   height: 100%;
-  width: 30%;
+  width: 20%;
   border-radius: 10px;
   /* background-color: rgb(173, 209, 239); */
   background-color: #eee;
@@ -37,11 +37,11 @@
 
 .sidebar-content .customer-info-box .customer-name-box {
   display: flex;
-  justify-content: space-around;
-  height: 200px;
+  justify-content: space-between;
+  height: 140px;
   align-items: center;
   /* border-bottom: 1px solid black; */
-  padding: 0 10px;
+  padding: 0 20px;
 }
 
 .customer-info-box .customer-name-box .drop-menu {
@@ -129,7 +129,7 @@
 }
 
 .sidebar-content .content {
-  width: 70%;
+  width: 80%;
   height: 100%;
   overflow: auto;
   border-radius: 10px;
@@ -286,13 +286,12 @@
   }
   
   .sidebar-content .customer-info-box .customer-name-box {
-    /* display: flex; */
-    /* justify-content: space-around; */
-    /* height: 200px; */
-    /* align-items: center; */
+    display: flex;
+    justify-content: space-between;
+    height: 140px;
+    align-items: center;
     /* border-bottom: 1px solid black; */
-    padding: 20px;
-    text-align: center;
+    padding: 0 20px;
   }
 
   .customer-info-box .customer-name-box .drop-menu {
@@ -306,9 +305,9 @@
     cursor: pointer;
   }
 
-  .ant-dropdown {
+  /* .ant-dropdown {
     left: 25px !important;
-  }
+  } */
 
   .customer-info-box .customer-name-box .drop-menu:hover {
     opacity: 0.8;

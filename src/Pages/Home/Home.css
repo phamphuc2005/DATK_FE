@@ -1,4 +1,31 @@
 @media only screen and (min-width: 700px){
+  .device-list .more {
+    border-radius: 50%;
+    font-size: 22px;
+    text-align: center;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    padding-top: 2px;
+  }
+
+  .device-list .more:hover {
+    background-color: white;
+  }
+
+  .device-list .more_ {
+    border-radius: 50%;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+  }
+
+  .device-list .more_:hover{
+    background-color: #eee;
+  }
+
 .device-list .grid-container {
   margin: 20px 20px 0 20px;
   display: grid;
@@ -78,6 +105,33 @@
 }
 
 @media only screen and (max-width: 700px){
+  .device-list .more {
+    border-radius: 50%;
+    font-size: 22px;
+    text-align: center;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    padding-top: 2px;
+  }
+
+  .device-list .more:hover {
+    background-color: white;
+  }
+
+  .device-list .more_ {
+    border-radius: 50%;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+  }
+
+  .device-list .more_:hover{
+    background-color: #eee;
+  }
+
   .device-list .grid_container {
     margin: 40px 20px 0 20px;
     display: grid;

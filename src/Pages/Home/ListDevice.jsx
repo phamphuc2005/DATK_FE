@@ -65,8 +65,8 @@ function List() {
         <Breadcrumb.Item className='current'>Danh sách thiết bị</Breadcrumb.Item>
       </Breadcrumb>
       <h1 className='component-title'> Danh sách thiết bị</h1>
-      <div style={{display: 'flex', justifyContent: 'space-between', margin:'40px 20px 0 20px'}}>
-        <button 
+      <div style={{margin:'40px 20px 0 20px'}}>
+        {/* <button 
           className='add-button'
           // type="primary"
           onClick={showModal}
@@ -77,7 +77,7 @@ function List() {
         size='large'
         onClick={()=>{navigate('/trash')}}
         danger
-        ><DeleteFilled /> Thùng rác</Button>
+        ><DeleteFilled /> Thùng rác</Button> */}
       </div>
       <Modal
         title="Thêm thiết bị"

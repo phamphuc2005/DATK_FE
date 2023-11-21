@@ -112,7 +112,7 @@ export default function UpdateInfo() {
           <Button
             className='box-button'
             // htmlType='submit'
-            // type='primary'
+            type="primary" ghost
             onClick={()=>(navigate('/change-password'))}
           >
             Đổi mật khẩu

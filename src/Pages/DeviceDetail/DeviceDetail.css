@@ -7,6 +7,20 @@
   background-color: rgb(210, 112, 112);
 } */
 
+.device-detail .add-button {
+  /* margin: 40px 0 0 20px; */
+  cursor: pointer;
+  background-color: forestgreen;
+  color: white;
+  border: none;
+  border-radius: 7.5px;
+  padding: 10px;
+}
+
+.device-detail .add-button:hover {
+  opacity: 0.8;
+}
+
 .device-detail .delete-button {
   margin: 40px 0 0 0;
   /* float: right; */
@@ -155,6 +169,21 @@
   /* .device-detail.box-warning {
     background-color: rgb(210, 112, 112);
   } */
+
+  
+.device-detail .add-button {
+  /* margin: 40px 0 0 20px; */
+  cursor: pointer;
+  background-color: forestgreen;
+  color: white;
+  border: none;
+  border-radius: 7.5px;
+  padding: 10px;
+}
+
+.device-detail .add-button:hover {
+  opacity: 0.8;
+}
   
   .device-detail .delete-button {
     margin: 40px 0 0 0;

@@ -6,7 +6,7 @@ import DeviceItem from '../../Component/DeviceItem/DeviceItem';
 import { getRequest, postRequest } from '../../hooks/api';
 import { Breadcrumb, Button, Form, Input, Modal } from 'antd';
 
-import { PlusOutlined, DeleteFilled, UndoOutlined, DeleteOutlined, UserOutlined, DatabaseOutlined, BarChartOutlined } from '@ant-design/icons'
+import { PlusOutlined, DeleteFilled, UndoOutlined, DeleteOutlined, UserOutlined, DatabaseOutlined, BarChartOutlined, EnvironmentOutlined, FundViewOutlined } from '@ant-design/icons'
 import { toast } from 'react-toastify';
 
 function Trash() {
@@ -40,9 +40,13 @@ function Trash() {
           <div className='header-icon'><UserOutlined /></div>
           <div className='text-item'>Quản lý tài khoản</div>
         </div>
+        <div className="home_item" onClick={()=>( navigate('/location'))}>
+          <div className='header-icon'><EnvironmentOutlined /></div>
+          <div className='text-item'>Quản lý khu vực</div>
+        </div>
         <div className="home_item" onClick={()=>( navigate('/list-device'))}>
-          <div className='header-icon'><DatabaseOutlined /></div>
-          <div className='text-item'>Quản lý thiết bị</div>
+          <div className='header-icon'><FundViewOutlined /></div>
+          <div className='text-item'>Thông số thiết bị</div>
         </div>
         <div className="home_item" onClick={()=>( navigate('/statistics'))}>
           <div className='header-icon'><BarChartOutlined /></div>
