@@ -258,7 +258,7 @@ export default function DeviceLocation() {
           // className='add-button'
           // type="primary"
           size='large'
-          onClick={()=>{navigate('/trash')}}
+          onClick={()=>{navigate(`/trash/${_id}`)}}
           danger
           ><DeleteFilled /> Thùng rác</Button>
         </div> : 

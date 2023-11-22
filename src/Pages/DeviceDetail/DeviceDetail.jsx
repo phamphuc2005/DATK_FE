@@ -175,6 +175,9 @@ export default function DeviceDetail() {
               </Modal>
             </div> */}
           </div>
+          <div className='text-content' style={{marginTop:'10px'}}>
+            <b>Khu vực:</b> {system.locationID ? system.locationID.name : ''} - {system.locationID ? system.locationID.locationID : ''}
+          </div>
         </div>
 
         {

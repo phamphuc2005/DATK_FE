@@ -12,8 +12,10 @@ import { toast } from 'react-toastify';
 function Location() {
   const navigate = useNavigate();
   const [ locations, setLocations ] = useState([]);
+  const [ location_, setLocation ] = useState({});
   const [ isShowAddModal, setShowAddModal ] = useState(false);
   const [ isShowJoinModal, setShowJoinModal ] = useState(false);
+  const [ isShowUpdateModal, setShowUpdateModal ] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -37,6 +39,11 @@ function Location() {
 
   const showJoinModal = () => {
     setShowJoinModal(true);
+  }
+
+  const showUpdateModal = (e) => {
+    setShowUpdateModal(true);
+    setLocation(e)
   }
 
   const handleOk = async (value) => {
@@ -146,11 +153,16 @@ function Location() {
       label: <a onClick={()=>outLocation(e)}>Rời khu vực</a>,
     } : ''
     ),
+    (e.role === 'Admin' ?
     {
-      label: (e.role === 'Admin' ?
-        <a onClick={()=>deleteLocation(e)}>Xóa khu vực</a> : ''
-      ) 
-    },
+      label: <a onClick={()=>showUpdateModal(e)}>Đổi tên</a>,
+    } : ''
+    ),
+    (e.role === 'Admin' ?
+    {
+      label: <a onClick={()=>deleteLocation(e)}>Xóa khu vực</a>,
+    } : ''
+    ),
   ];
 
     const StopPropagation = (e) => {
@@ -201,6 +213,29 @@ function Location() {
     }
   }
 
+  const updateLocation = async () => {
+    const locationName = document.getElementById('update-name-location').value;
+    if (locationName === '') { toast.warning('Cần nhập gồm ít nhất 1 kí tự!'); }
+    else {
+      const data = await await postRequest('/update-location', {
+        name: locationName,
+        userID: localStorage.getItem('user_id'),
+        _id: location_._id
+      });
+
+      const error = await data.message;
+      if (error) {
+        toast.error(error);
+        setShowUpdateModal(false);
+      }
+      else {
+        toast.success('Thành công!');
+        setShowUpdateModal(false);
+        GetLocations();
+      }
+    }
+  }
+
   return(
     <div className="device-list page-component">
       <div style={{display:'flex', justifyContent:'space-between', paddingRight:'20px'}}>
@@ -231,11 +266,11 @@ function Location() {
             //   name={e.name}
             //   state={e.state}
             // />
-            <div className="device-item" style={{alignItems:'center'}}>
-              <div className='text-content'>
-                <div className="device-item-text" style={{marginTop:'0px'}}><b>Khu vực:</b> {e.name}</div>
-                <div className='device-item-text'><b>ID:</b> {e.locationID}</div>
-                <div className='device-item-text'><b>Vai trò:</b> {e.role}</div>
+            <div className="device_item" style={{alignItems:'center', cursor:'auto'}}>
+              <div className='text_content'>
+                <div className="device_item_text" style={{marginTop:'0px'}}><b>Khu vực:</b> {e.name}</div>
+                <div className='device_item_text'><b>ID:</b> {e.locationID}</div>
+                <div className='device_item_text'><b>Vai trò:</b> {e.role}</div>
               </div>
               <Dropdown
                 menu={{
@@ -278,6 +313,19 @@ function Location() {
       >
         <div id='update-name-box' className="update-name-box">
           <Input id='join-location-id' placeholder='Nhập mã khu vực'/>
+        </div>
+      </Modal>
+      <Modal
+        title="Đổi tên khu vực"
+        open={isShowUpdateModal} 
+        onOk={updateLocation} 
+        onCancel={()=>setShowUpdateModal(false)} 
+        okText="Gửi" 
+        cancelText="Hủy"
+        destroyOnClose
+      >
+        <div id='update-name-box' className="update-name-box">
+          <Input id='update-name-location' placeholder='Nhập tên mới'/>
         </div>
       </Modal>
     </div>

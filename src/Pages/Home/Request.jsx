@@ -65,7 +65,7 @@ function Request() {
       {requests.length > 0 ?
         <div className='grid_container' style={{marginTop:'40px'}}>
           {requests.map((e, index) => 
-            <div className="device_item" style={{alignItems:'center'}}>
+            <div className="device_item" style={{alignItems:'center', cursor:'auto'}}>
               <div className='text_content'>
                 <div className="device_item_text" style={{marginTop:'0px'}}><b>Khu vực:</b> {e.name}</div>
                 <div className='device_item_text'><b>ID:</b> {e.locationID}</div>

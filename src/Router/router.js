@@ -44,7 +44,7 @@ export const PUBLIC_ROUTER = [
   },
   {
     key: "trash",
-    path: '/trash',
+    path: '/trash/:id',
     element: <Trash/>,
   },
   {

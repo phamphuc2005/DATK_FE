@@ -4,15 +4,18 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import './Home.css';
 import DeviceItem from '../../Component/DeviceItem/DeviceItem';
 import { getRequest, postRequest } from '../../hooks/api';
-import { Breadcrumb, Button, Form, Input, Modal } from 'antd';
+import { Breadcrumb, Button, Form, Input, Modal, Select, Space } from 'antd';
 
 import { PlusOutlined, DeleteFilled } from '@ant-design/icons'
 import { toast } from 'react-toastify';
+import { Option } from 'antd/es/mentions';
 
 function Statistics() {
   const navigate = useNavigate();
   const [ allSystems, setAllSystems ] = useState([]);
   const [ isShowModal, setShowModal ] = useState(false);
+  const [ locations, setLocations ] = useState([]);
+  const [ isLocation, setIsLocation ] = useState('All');
   const location = useLocation();
 
   useEffect(() => {
@@ -22,11 +25,26 @@ function Statistics() {
     else {
       GetAllSystems();
     }
-  }, [navigate, location]);
+  }, [navigate, location, isLocation]);
 
   const GetAllSystems = async () => {
-    const data = await getRequest('/systems');
+    const data = await getRequest(`/list-devices/${isLocation}`);
     setAllSystems(await data);
+    console.log(await data);
+  }
+
+  useEffect(() => {
+    if (!localStorage.getItem('accessToken')) {
+      navigate('/login');
+    }
+    else {
+      GetLocations();
+    }
+  }, [navigate, location]);
+
+  const GetLocations = async () => {
+    const data = await getRequest('/list-location');
+    setLocations(await data);
     console.log(await data);
   }
   
@@ -62,6 +80,10 @@ function Statistics() {
     navigate(`/statistic/${value}`);
   }
 
+  const handleChange = (key) => {
+    setIsLocation(key)
+  };
+
   return(
     <div className="device-list page-component">
       <Breadcrumb className='breadcrumb'>
@@ -69,8 +91,26 @@ function Statistics() {
         <Breadcrumb.Item className='current'>Thống kê số liệu</Breadcrumb.Item>
       </Breadcrumb>
       <h1 className='component-title'>Thống kê số liệu</h1>
+      <div style={{display:'flex', justifyContent:'space-between',margin:'40px 20px 0 20px'}}>
+          <Space wrap>
+            <Select
+              defaultValue="All"
+              style={{
+                width: 170,
+              }}
+              onChange={handleChange}
+              size='large'
+            >
+              {locations.map(location => (
+                <Option key={location._id} value={location._id}>
+                  {`${location.name} - ${location.locationID}`}
+                </Option>
+              ))}
+            </Select>
+          </Space>
+      </div>
       {allSystems.length > 0 ?
-        <div className='grid-container' style={{marginTop:'40px'}}>
+        <div className='grid-container' style={{marginTop:'20px'}}>
           {allSystems.map((e, index) => 
             // <DeviceItem
             //   key={index}
@@ -83,6 +123,7 @@ function Statistics() {
             <div className='text-content'>
               <div className="device-item-text"><b>ID:</b> {e.deviceID}</div>
               <div className='device-item-text'><b>Tên thiết bị:</b> {e.name}</div>
+              <div className='device-item-text'><b>Khu vực:</b> {e.locationID.name} - {e.locationID.locationID}</div>
             </div>
           </div>
           )}

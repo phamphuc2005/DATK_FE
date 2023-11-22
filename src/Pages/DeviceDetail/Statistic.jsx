@@ -158,12 +158,22 @@ console.log(time);
       </div>
       <div className='device-info' style={{display:'inherit', marginTop:'10px'}}>
         <div style={{display:'flex', justifyContent:'space-between'}}>
-          <div className='text-content id-content' style={{marginBottom:'0'}}>
-            <b>Mã thiết bị:</b> {system.deviceID}
+          <div>
+            <div className='text-content id-content' style={{marginBottom:'0'}}>
+              <b>Mã thiết bị:</b> {system.deviceID}
+            </div>
+            {/* <div className="name-content"> */}
+              <div className='text-content' style={{marginTop:'10px'}}>
+                <b>Tên thiết bị:</b> {system.name}
+              </div>
+            {/* </div> */}
           </div>
-          <div className="name-content">
+          <div>
             <div className='text-content'>
-              <b>Tên thiết bị:</b> {system.name}
+                <b>Khu vực:</b> {system.locationID ? system.locationID.name : ''}
+            </div>
+            <div className='text-content' style={{marginTop:'10px'}}>
+                <b>ID:</b> {system.locationID ? system.locationID.locationID : ''}
             </div>
           </div>
         </div>

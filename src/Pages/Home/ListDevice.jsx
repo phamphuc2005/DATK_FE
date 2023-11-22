@@ -4,15 +4,18 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import './Home.css';
 import DeviceItem from '../../Component/DeviceItem/DeviceItem';
 import { getRequest, postRequest } from '../../hooks/api';
-import { Breadcrumb, Button, Form, Input, Modal } from 'antd';
+import { Breadcrumb, Button, Form, Input, Modal, Select, Space } from 'antd';
 
 import { PlusOutlined, DeleteFilled } from '@ant-design/icons'
 import { toast } from 'react-toastify';
+import { Option } from 'antd/es/mentions';
 
 function List() {
   const navigate = useNavigate();
   const [ allSystems, setAllSystems ] = useState([]);
+  const [ locations, setLocations ] = useState([]);
   const [ isShowModal, setShowModal ] = useState(false);
+  const [ isLocation, setIsLocation ] = useState('All');
   const location = useLocation();
 
   useEffect(() => {
@@ -22,11 +25,26 @@ function List() {
     else {
       GetAllSystems();
     }
-  }, [navigate, location]);
+  }, [navigate, location, isLocation]);
 
   const GetAllSystems = async () => {
-    const data = await getRequest('/systems');
+    const data = await getRequest(`/list-devices/${isLocation}`);
     setAllSystems(await data);
+    console.log(await data);
+  }
+
+  useEffect(() => {
+    if (!localStorage.getItem('accessToken')) {
+      navigate('/login');
+    }
+    else {
+      GetLocations();
+    }
+  }, [navigate, location]);
+
+  const GetLocations = async () => {
+    const data = await getRequest('/list-location');
+    setLocations(await data);
     console.log(await data);
   }
   
@@ -58,6 +76,18 @@ function List() {
     setShowModal(false)
   }
 
+  const handleChange = (key) => {
+    setIsLocation(key)
+  };
+  
+  const deviceManager = () => {
+    if (isLocation == 'All') {
+      navigate('/location');
+    } else {
+      navigate(`/device_location/${isLocation}`);
+    }
+  }
+
   return(
     <div className="device-list page-component">
       <Breadcrumb className='breadcrumb'>
@@ -65,19 +95,28 @@ function List() {
         <Breadcrumb.Item className='current'>Danh sách thiết bị</Breadcrumb.Item>
       </Breadcrumb>
       <h1 className='component-title'> Danh sách thiết bị</h1>
-      <div style={{margin:'40px 20px 0 20px'}}>
-        {/* <button 
-          className='add-button'
-          // type="primary"
-          onClick={showModal}
-        ><PlusOutlined /> Thêm thiết bị</button>
-        <Button 
-        // className='add-button'
-        // type="primary"
-        size='large'
-        onClick={()=>{navigate('/trash')}}
-        danger
-        ><DeleteFilled /> Thùng rác</Button> */}
+      <div style={{display:'flex', justifyContent:'space-between',margin:'40px 20px 0 20px'}}>
+        <Space wrap>
+          <Select
+            defaultValue="All"
+            style={{
+              width: 170,
+            }}
+            onChange={handleChange}
+            size='large'
+          >
+            {locations.map(location => (
+              <Option key={location._id} value={location._id}>
+                {`${location.name} - ${location.locationID}`}
+              </Option>
+            ))}
+          </Select>
+        </Space>
+        <Button
+          size='large' 
+          type='primary' 
+          onClick={()=>deviceManager()}
+        >Quản lý thiết bị</Button>
       </div>
       <Modal
         title="Thêm thiết bị"
@@ -156,6 +195,7 @@ function List() {
               deviceID={e.deviceID}
               name={e.name}
               state={e.state}
+              location={e.locationID}
             />
           )}
         </div> :

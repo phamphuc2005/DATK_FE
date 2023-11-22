@@ -83,12 +83,10 @@ export default function SideBar() {
         </div> */}
       </div>
       <div className='customer-info'>
-        {/* <p><b><UserOutlined /> Người dùng: </b>{customerInfo.name}</p> */}
         <p><b><UserOutlined /> Người dùng: </b>{customerInfo.name}</p>
         <p><b><IdcardOutlined /> ID: </b>{customerInfo._id}</p>
         <p><b><MailOutlined /> Email: </b>{customerInfo.email}</p>
         <p><b><PhoneOutlined /> Số điện thoại: </b>{customerInfo.phone}</p>
-        {/* <p><b><ApartmentOutlined /> Số thiết bị sở hữu: </b>{customerInfo.count}</p> */}
       </div>
       <div className='customer-info-button'>
           {/* <a href='/add-device' className='add-device'>Thêm thiết bị</a> */}

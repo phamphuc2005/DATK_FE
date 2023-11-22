@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 
 import './Home.css';
 import DeviceItem from '../../Component/DeviceItem/DeviceItem';
@@ -13,6 +13,7 @@ function Trash() {
   const navigate = useNavigate();
   const [ allSystems, setAllSystems ] = useState([]);
   const location = useLocation();
+  const { id: _id } = useParams();
 
   useEffect(() => {
     if (!localStorage.getItem('accessToken')) {
@@ -24,7 +25,7 @@ function Trash() {
   }, [navigate, location]);
 
   const GetAllSystems = async () => {
-    const data = await getRequest('/get-trash');
+    const data = await getRequest(`/get-trash/${_id}`);
     setAllSystems(await data);
     console.log(await data);
   }
@@ -40,7 +41,7 @@ function Trash() {
       content: `Bạn có chắc chắn muốn khôi phục thiết bị này không?`,
       async onOk() {
         const data = await postRequest('/restore-device', {
-          id: value.deviceID,
+          _id: value._id,
           userID: localStorage.getItem('user_id')
         });
         const error = await data.message;
@@ -65,7 +66,7 @@ function Trash() {
       content: `Bạn có chắc chắn muốn xóa vĩnh viễn thiết bị này không?`,
       async onOk() {
         const data = await postRequest('/delete-device', {
-          id: value.deviceID,
+          _id: value._id,
           userID: localStorage.getItem('user_id')
         });
         const error = await data.message;
@@ -84,7 +85,7 @@ function Trash() {
     <div className="device-list page-component">
       <Breadcrumb className='breadcrumb'>
         <Breadcrumb.Item><a onClick={()=>(navigate('/'))}>Trang chủ</a></Breadcrumb.Item>
-        <Breadcrumb.Item> <a onClick={()=>(navigate('/list-device'))}>Danh sách thiết bị</a></Breadcrumb.Item>
+        <Breadcrumb.Item> <a onClick={()=>(navigate('/location'))}>Khu vực</a></Breadcrumb.Item>
         <Breadcrumb.Item className='current'>Thùng rác</Breadcrumb.Item>
       </Breadcrumb>
       <h1 className='component-title'> Thùng rác</h1>

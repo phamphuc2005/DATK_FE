@@ -5,7 +5,7 @@ import './DeviceItem.css';
 import { getRequest } from '../../hooks/api';
 import { useState } from 'react';
 
-export default function DeviceItem({ id, deviceID, name, state }) {
+export default function DeviceItem({ id, deviceID, name, state, location }) {
   const navigate = useNavigate();
   const [sysState, setSysState] = useState(state)
 
@@ -32,6 +32,7 @@ export default function DeviceItem({ id, deviceID, name, state }) {
       <div className='text-content'>
         <div className="device-item-text"><b>ID:</b> {deviceID}</div>
         <div className='device-item-text'><b>Tên thiết bị:</b> {name}</div>
+        <div className='device-item-text'><b>Khu vực:</b> {location.name} - {location.locationID}</div>
       </div>
       <div className="switch-button-box" onClick={StopPropagation}>
         <Switch 
