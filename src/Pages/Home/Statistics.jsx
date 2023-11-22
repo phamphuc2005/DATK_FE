@@ -84,6 +84,11 @@ function Statistics() {
     setIsLocation(key)
   };
 
+  const options = [{ value: 'All', label: 'Tất cả' },
+  ...locations.map(location => (
+    {value: location._id, label: `${location.name} - ${location.locationID}`}
+))]
+
   return(
     <div className="device-list page-component">
       <Breadcrumb className='breadcrumb'>
@@ -100,12 +105,13 @@ function Statistics() {
               }}
               onChange={handleChange}
               size='large'
+              options={options}
             >
-              {locations.map(location => (
+              {/* {locations.map(location => (
                 <Option key={location._id} value={location._id}>
                   {`${location.name} - ${location.locationID}`}
                 </Option>
-              ))}
+              ))} */}
             </Select>
           </Space>
       </div>
@@ -121,7 +127,7 @@ function Statistics() {
             // />
             <div className="device-item" onClick={()=>HandleViewDetail(e.deviceID)}>
             <div className='text-content'>
-              <div className="device-item-text"><b>ID:</b> {e.deviceID}</div>
+              <div className="device-item-text" style={{marginTop:'0px'}}><b>ID:</b> {e.deviceID}</div>
               <div className='device-item-text'><b>Tên thiết bị:</b> {e.name}</div>
               <div className='device-item-text'><b>Khu vực:</b> {e.locationID.name} - {e.locationID.locationID}</div>
             </div>

@@ -88,6 +88,11 @@ function List() {
     }
   }
 
+  const options = [{ value: 'All', label: 'Tất cả' },
+    ...locations.map(location => (
+      {value: location._id, label: `${location.name} - ${location.locationID}`}
+  ))]
+
   return(
     <div className="device-list page-component">
       <Breadcrumb className='breadcrumb'>
@@ -104,12 +109,13 @@ function List() {
             }}
             onChange={handleChange}
             size='large'
+            options={options}
           >
-            {locations.map(location => (
+            {/* {locations.map(location => (
               <Option key={location._id} value={location._id}>
                 {`${location.name} - ${location.locationID}`}
               </Option>
-            ))}
+            ))} */}
           </Select>
         </Space>
         <Button

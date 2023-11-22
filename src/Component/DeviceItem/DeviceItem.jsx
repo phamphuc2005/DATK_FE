@@ -30,7 +30,7 @@ export default function DeviceItem({ id, deviceID, name, state, location }) {
   return(
     <div className="device-item" onClick={HandleViewDetail}>
       <div className='text-content'>
-        <div className="device-item-text"><b>ID:</b> {deviceID}</div>
+        <div className="device-item-text" style={{marginTop:'0px'}}><b>ID:</b> {deviceID}</div>
         <div className='device-item-text'><b>Tên thiết bị:</b> {name}</div>
         <div className='device-item-text'><b>Khu vực:</b> {location.name} - {location.locationID}</div>
       </div>

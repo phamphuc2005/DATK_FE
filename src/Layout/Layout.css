@@ -38,7 +38,7 @@
 .sidebar-content .customer-info-box .customer-name-box {
   display: flex;
   justify-content: space-between;
-  height: 140px;
+  height: 135px;
   align-items: center;
   /* border-bottom: 1px solid black; */
   padding: 0 20px;
@@ -50,7 +50,7 @@
   padding: 5px;
   background-color: white;
   cursor: pointer;
-  font-size: 24px;
+  font-size: 20px;
   border-radius: 5px;
 }
 
@@ -160,7 +160,7 @@
   .sidebar-content .customer-info-box .customer-name-box {
     display: flex;
     justify-content: space-between;
-    height: 130px;
+    height: 100px;
     align-items: center;
     /* border-bottom: 1px solid black; */
     padding: 0 20px;
@@ -168,7 +168,7 @@
 
   .customer-info-box .customer-name-box .drop-menu {
     border: 1px solid black;
-    font-size: 30px;
+    font-size: 20px;
     cursor: pointer;
     background-color: white;
     border-radius: 5px;
@@ -288,7 +288,7 @@
   .sidebar-content .customer-info-box .customer-name-box {
     display: flex;
     justify-content: space-between;
-    height: 140px;
+    height: 135px;
     align-items: center;
     /* border-bottom: 1px solid black; */
     padding: 0 15px;

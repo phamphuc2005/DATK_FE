@@ -99,7 +99,7 @@ function Trash() {
             //   name={e.name}
             //   state={e.state}
             // />
-            <div className="device_item">
+            <div className="device_item" style={{marginBottom:'0'}}>
               <div className='text_content'>
                 <div className="device_item_text"><b>ID:</b> {e.deviceID}</div>
                 <div className='device_item_text'><b>Tên thiết bị:</b> {e.name}</div>
