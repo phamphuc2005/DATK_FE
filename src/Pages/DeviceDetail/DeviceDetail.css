@@ -14,7 +14,7 @@
   color: white;
   border: none;
   border-radius: 7.5px;
-  padding: 10px;
+  padding: 5px 10px;
 }
 
 .device-detail .add-button:hover {
@@ -179,7 +179,7 @@
   color: white;
   border: none;
   border-radius: 7.5px;
-  padding: 10px;
+  padding: 5px 10px;
 }
 
 .device-detail .add-button:hover {

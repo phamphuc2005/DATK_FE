@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import './Home.css';
 import DeviceItem from '../../Component/DeviceItem/DeviceItem';
 import { getRequest, postRequest } from '../../hooks/api';
-import { Breadcrumb, Button, Dropdown, Form, Input, Modal, Pagination } from 'antd';
+import { Breadcrumb, Button, Dropdown, Form, Input, Modal, Pagination, Select, Space } from 'antd';
 
 import { PlusOutlined, DeleteFilled, MoreOutlined, SettingOutlined } from '@ant-design/icons'
 import { toast } from 'react-toastify';
@@ -17,6 +17,7 @@ function Location() {
   const [ isShowJoinModal, setShowJoinModal ] = useState(false);
   const [ isShowUpdateModal, setShowUpdateModal ] = useState(false);
   const location = useLocation();
+  const [ isRole, setIsRole ] = useState('All');
 
   const [currentPage, setCurrentPage] = useState(1);
   const pageSize = 10;
@@ -30,10 +31,10 @@ function Location() {
     else {
       GetLocations();
     }
-  }, [navigate, location]);
+  }, [navigate, location, isRole]);
 
   const GetLocations = async () => {
-    const data = await getRequest('/list-location');
+    const data = await getRequest(`/list-location/${isRole}`);
     setLocations(await data);
     console.log(await data);
   }
@@ -245,6 +246,10 @@ function Location() {
     setCurrentPage(page);
   };
 
+  const handleChange = (key) => {
+    setIsRole(key)
+  };
+
   return(
     <div className="device-list page-component">
       <div style={{display:'flex', justifyContent:'space-between', paddingRight:'20px'}}>
@@ -265,9 +270,28 @@ function Location() {
         </Dropdown>
       </div>
       <h1 className='component-title'>Danh sách khu vực</h1>
+      <div style={{display:'flex', margin:'40px 20px 0 20px', gap:'5px', alignItems:'baseline'}}>
+        <div style={{fontWeight:'500'}}>Vai trò :</div>
+        <Space wrap>
+          <Select
+            defaultValue="All"
+            style={{
+              width: 100,
+            }}
+            onChange={handleChange}
+            size='middle'
+            options={[
+              {value: 'All', label: 'Tất cả'},
+              {value: 'Admin', label: 'Admin'},
+              {value: 'Member', label: 'Member'}
+            ]}
+          >
+          </Select>
+        </Space>
+      </div>
       {locations.length > 0 ?
         <>
-          <div className='grid-container' style={{marginTop:'40px'}}>
+          <div className='grid-container' style={{marginTop:'20px'}}>
             {elementsToDisplay.map((e, index) => 
               // <DeviceItem
               //   key={index}

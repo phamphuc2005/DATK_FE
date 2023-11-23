@@ -59,7 +59,7 @@
   border: none;
   background-color: gold;
   color: white;
-  padding: 10px;
+  padding: 7.5px 10px;
   border-radius: 5px;
   cursor: pointer;
   min-width: 135px;
@@ -73,7 +73,7 @@
   border: none;
   background-color: red;
   color: white;
-  padding: 10px;
+  padding: 7.5px 10px;
   border-radius: 5px;
   margin-top: 10px;
   cursor: pointer;
@@ -192,7 +192,7 @@
     border: none;
     background-color: gold;
     color: white;
-    padding: 10px;
+    padding: 7.5px 10px;
     border-radius: 5px;
     cursor: pointer;
     min-width: 135px;
@@ -206,7 +206,7 @@
     border: none;
     background-color: red;
     color: white;
-    padding: 10px;
+    padding: 7.5px 10px;
     border-radius: 5px;
     margin-top: 10px;
     cursor: pointer;

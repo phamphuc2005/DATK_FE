@@ -144,19 +144,19 @@ console.log(time);
         <Button 
             className='delete-button' 
             onClick={()=>{window.location.reload()}}
-            size='large'
+            size='middle'
           ><ReloadOutlined />Làm mới
         </Button>
         <div className='time'>
-          <Button size='large' onClick={()=>prevWeek()}><CaretLeftOutlined /></Button>
+          <Button size='middle' onClick={()=>prevWeek()}><CaretLeftOutlined /></Button>
           <div className='time-input'>{dateStrings[0]} - {dateStrings[6]}</div>
           {day === -7 ?
-          <Button disabled size='large' ><CaretRightOutlined /></Button> :
-          <Button size='large' onClick={()=>nextWeek()} ><CaretRightOutlined /></Button>
+          <Button disabled size='middle' ><CaretRightOutlined /></Button> :
+          <Button size='middle' onClick={()=>nextWeek()} ><CaretRightOutlined /></Button>
           }
         </div>
       </div>
-      <div className='device-info' style={{display:'inherit', marginTop:'10px'}}>
+      <div className='device-info' style={{display:'inherit', marginTop:'20px'}}>
         <div style={{display:'flex', justifyContent:'space-between'}}>
           <div>
             <div className='text-content id-content' style={{marginBottom:'0'}}>

@@ -257,7 +257,7 @@ export default function DeviceLocation() {
           <Button 
           // className='add-button'
           // type="primary"
-          size='large'
+          size='middle'
           onClick={()=>{navigate(`/trash/${_id}`)}}
           danger
           ><DeleteFilled /> Thùng rác</Button>
@@ -266,7 +266,7 @@ export default function DeviceLocation() {
           <Button 
             className='delete-button' 
             onClick={()=>{window.location.reload()}}
-            size='large'
+            size='middle'
           ><ReloadOutlined />Làm mới
         </Button>
         </div>

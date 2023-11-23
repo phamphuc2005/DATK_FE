@@ -48,7 +48,7 @@ function Statistics() {
   }, [navigate, location]);
 
   const GetLocations = async () => {
-    const data = await getRequest('/list-location');
+    const data = await getRequest('/list-location/All');
     setLocations(await data);
     console.log(await data);
   }
@@ -105,24 +105,25 @@ function Statistics() {
         <Breadcrumb.Item className='current'>Thống kê số liệu</Breadcrumb.Item>
       </Breadcrumb>
       <h1 className='component-title'>Thống kê số liệu</h1>
-      <div style={{display:'flex', justifyContent:'space-between',margin:'40px 20px 0 20px'}}>
-          <Space wrap>
-            <Select
-              defaultValue="All"
-              style={{
-                width: 170,
-              }}
-              onChange={handleChange}
-              size='large'
-              options={options}
-            >
-              {/* {locations.map(location => (
-                <Option key={location._id} value={location._id}>
-                  {`${location.name} - ${location.locationID}`}
-                </Option>
-              ))} */}
-            </Select>
-          </Space>
+      <div style={{display:'flex', margin:'40px 20px 0 20px', gap:'5px', alignItems:'baseline'}}>
+        <div style={{fontWeight:'500'}}>Khu vực :</div>
+        <Space wrap>
+          <Select
+            defaultValue="All"
+            style={{
+              width: 170,
+            }}
+            onChange={handleChange}
+            size='middle'
+            options={options}
+          >
+            {/* {locations.map(location => (
+              <Option key={location._id} value={location._id}>
+                {`${location.name} - ${location.locationID}`}
+              </Option>
+            ))} */}
+          </Select>
+        </Space>
       </div>
       {allSystems.length > 0 ?
         <>

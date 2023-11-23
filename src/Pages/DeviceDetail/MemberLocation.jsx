@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { WarningOutlined, CheckCircleOutlined, CaretLeftOutlined, CaretRightOutlined } from '@ant-design/icons';
+import { WarningOutlined, CheckCircleOutlined, CaretLeftOutlined, CaretRightOutlined, PlusOutlined } from '@ant-design/icons';
 import { Breadcrumb, Button, Input, Modal, Switch, Table } from 'antd';
 
 import './DeviceDetail.css';
@@ -23,6 +23,7 @@ export default function MemberLocation() {
   const [ sysState, setSysState ] = useState();
   const boxWarning = useRef(null);
   const [ isShowUpdateName, setIsShowUpdateName ] = useState(false);
+  const [ isShowModal, setShowModal ] = useState(false);
 
   useEffect(() => {
     if (!localStorage.getItem('accessToken')) {
@@ -208,6 +209,34 @@ export default function MemberLocation() {
     },
   ];
 
+  const showModal = () => {
+    setShowModal(true);
+  }
+
+  const addMember = async () => {
+    const email = document.getElementById('member-email').value;
+    if (email === '') { toast.warning('Cần nhập gồm ít nhất 1 kí tự!'); }
+    else {
+      const data = await await postRequest('/add-member', {
+        email: email,
+        userID: localStorage.getItem('user_id'),
+        locationID: _id
+      });
+
+      const error = await data.message;
+      if (error) {
+        toast.error(error);
+        setShowModal(false);
+      }
+      else {
+        toast.success('Thành công!');
+        setShowModal(false);
+        GetMember();
+        GetRequests();
+      }
+    }
+  }
+
   return (
     <div ref={boxWarning} className="device-detail page-component">
       <Breadcrumb className='breadcrumb' style={{marginLeft: '0px'}}>
@@ -220,9 +249,18 @@ export default function MemberLocation() {
         <Button 
             className='delete-button' 
             onClick={()=>{window.location.reload()}}
-            size='large'
+            size='middle'
           ><ReloadOutlined />Làm mới
         </Button>
+        {location && location.role === 'Admin' ?
+          <button 
+          className='add-button'
+          // type="primary"
+          onClick={showModal}
+          style={{margin:'40px 0 0 20px'}}
+        ><PlusOutlined /> Thêm thành viên</button> :
+        <></>
+        }
       </div>
       <div className='device-info' style={{display:'inherit', marginTop:'10px'}}>
         <div style={{display:'flex', justifyContent:'space-between'}}>
@@ -272,6 +310,19 @@ export default function MemberLocation() {
         <></>
       }
       
+      <Modal
+        title="Thêm thành viên"
+        open={isShowModal} 
+        onOk={addMember} 
+        onCancel={()=>setShowModal(false)} 
+        okText="Xác nhận" 
+        cancelText="Hủy"
+        destroyOnClose
+      >
+        <div id='update-name-box' className="update-name-box">
+          <Input id='member-email' placeholder='Nhập email người dùng'/>
+        </div>
+      </Modal>
     </div>
   )
 }

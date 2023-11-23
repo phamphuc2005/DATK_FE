@@ -129,7 +129,7 @@ export default function ChangePassword() {
             />
           </Form.Item>
           <Form.Item style={{marginBottom:'0'}}>
-            <Button className="box-button" htmlType="submit" type="primary" style={{float:'right'}}>
+            <Button className="box-button" htmlType="submit" type="primary" size='large' style={{float:'right'}}>
               Xác nhận
             </Button>
           </Form.Item>

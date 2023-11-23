@@ -48,7 +48,7 @@ function List() {
   }, [navigate, location]);
 
   const GetLocations = async () => {
-    const data = await getRequest('/list-location');
+    const data = await getRequest('/list-location/All');
     setLocations(await data);
     console.log(await data);
   }
@@ -102,6 +102,8 @@ function List() {
     setCurrentPage(page);
   };
 
+  console.log(options);
+
   return(
     <div className="device-list page-component">
       <Breadcrumb className='breadcrumb'>
@@ -110,25 +112,28 @@ function List() {
       </Breadcrumb>
       <h1 className='component-title'> Danh sách thiết bị</h1>
       <div style={{display:'flex', justifyContent:'space-between',margin:'40px 20px 0 20px'}}>
-        <Space wrap>
-          <Select
-            defaultValue="All"
-            style={{
-              width: 170,
-            }}
-            onChange={handleChange}
-            size='large'
-            options={options}
-          >
-            {/* {locations.map(location => (
-              <Option key={location._id} value={location._id}>
-                {`${location.name} - ${location.locationID}`}
-              </Option>
-            ))} */}
-          </Select>
-        </Space>
+        <div style={{display:'flex', gap:'5px', alignItems:'baseline'}}>
+        <div style={{fontWeight:'500'}}>Khu vực:</div>
+          <Space wrap>
+            <Select
+              defaultValue="All"
+              style={{
+                width: 155,
+              }}
+              onChange={handleChange}
+              size='middle'
+              options={options}
+            >
+              {/* {locations.map(location => (
+                <Option key={location._id} value={location._id}>
+                  {`${location.name} - ${location.locationID}`}
+                </Option>
+              ))} */}
+            </Select>
+          </Space>
+        </div>
         <Button
-          size='large' 
+          size='middle' 
           type='primary' 
           onClick={()=>deviceManager()}
         >Quản lý thiết bị</Button>

@@ -112,6 +112,7 @@ export default function UpdateInfo() {
           <Button
             className='box-button'
             // htmlType='submit'
+            size='large'
             type="primary" ghost
             onClick={()=>(navigate('/change-password'))}
           >
@@ -121,6 +122,7 @@ export default function UpdateInfo() {
             className='box-button'
             htmlType='submit'
             type='primary'
+            size='large'
             style={{float:'right'}}
           >
             Chỉnh sửa

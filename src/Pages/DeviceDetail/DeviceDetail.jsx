@@ -139,7 +139,7 @@ export default function DeviceDetail() {
         <Button 
             className='delete-button' 
             onClick={()=>{window.location.reload()}}
-            size='large'
+            size='middle'
           ><ReloadOutlined />Làm mới</Button>
           {/* <Button 
             className='delete-button' 
