@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 import './Home.css';
 import { getRequest, postRequest } from '../../hooks/api';
-import { Breadcrumb, Button, Dropdown, Form, Input, Modal } from 'antd';
+import { Breadcrumb, Button, Dropdown, Form, Input, Modal, Pagination } from 'antd';
 
 import { toast } from 'react-toastify';
 
@@ -11,6 +11,11 @@ function Request() {
   const navigate = useNavigate();
   const [ requests, setRequests ] = useState([]);
   const location = useLocation();
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const pageSize = 10;
+
+  const elementsToDisplay = requests.slice((currentPage - 1) * pageSize, currentPage * pageSize);
 
   useEffect(() => {
     if (!localStorage.getItem('accessToken')) {
@@ -52,6 +57,10 @@ function Request() {
     })
   }
 
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+
   return(
     <div className="device-list page-component">
       <div style={{display:'flex', justifyContent:'space-between', paddingRight:'20px'}}>
@@ -63,23 +72,32 @@ function Request() {
       </div>
       <h1 className='component-title'>Danh sách yêu cầu</h1>
       {requests.length > 0 ?
-        <div className='grid_container' style={{marginTop:'40px'}}>
-          {requests.map((e, index) => 
-            <div className="device_item" style={{alignItems:'center', cursor:'auto', marginBottom:'0'}}>
-              <div className='text_content'>
-                <div className="device_item_text" style={{marginTop:'0px'}}><b>Khu vực:</b> {e.name}</div>
-                <div className='device_item_text'><b>ID:</b> {e.locationID}</div>
-                <div className='device_item_text'><b>Vai trò:</b> {e.role}</div>
+        <>
+          <div className='grid_container' style={{marginTop:'40px'}}>
+            {elementsToDisplay.map((e, index) => 
+              <div className="device_item" style={{alignItems:'center', cursor:'auto', marginBottom:'0'}}>
+                <div className='text_content'>
+                  <div className="device_item_text" style={{marginTop:'0px'}}><b>Khu vực:</b> {e.name}</div>
+                  <div className='device_item_text'><b>ID:</b> {e.locationID}</div>
+                  <div className='device_item_text'><b>Vai trò:</b> {e.role}</div>
+                </div>
+                <Button             
+                  className='delete-button' 
+                  type="primary" 
+                  danger
+                  onClick={()=>cancelRequest(e._id)}
+                  >Hủy</Button>
               </div>
-              <Button             
-                className='delete-button' 
-                type="primary" 
-                danger
-                onClick={()=>cancelRequest(e._id)}
-                >Hủy</Button>
-            </div>
-          )}
-        </div> :
+            )}
+          </div> 
+          <Pagination
+            current={currentPage}
+            // pageSize={pageSize}
+            total={requests.length}
+            onChange={handlePageChange}
+            style={{textAlign:'center', marginTop:'20px'}}
+          /> 
+        </> :
         <div className='no_data'>Danh sách trống</div>
       }
     </div>

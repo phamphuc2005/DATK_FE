@@ -4,9 +4,9 @@
     font-size: 22px;
     text-align: center;
     cursor: pointer;
-    width: 30px;
-    height: 30px;
-    padding-top: 2px;
+    width: 35.5px;
+    height: 35.5px;
+    padding: 5px;
   }
 
   .device-list .more:hover {
@@ -110,9 +110,9 @@
     font-size: 22px;
     text-align: center;
     cursor: pointer;
-    width: 30px;
-    height: 30px;
-    padding-top: 2px;
+    width: 35.5px;
+    height: 35.5px;
+    padding: 5px;
   }
 
   .device-list .more:hover {

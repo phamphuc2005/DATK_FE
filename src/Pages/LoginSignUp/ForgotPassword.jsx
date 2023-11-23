@@ -65,6 +65,7 @@ function ForgotPassword() {
   return (
     <>
       <div className="space"></div>
+      <div style={{textAlign:'center', color:'gold', fontSize:'32px', fontWeight:'900'}}>FIRE ALARM SYSTEM</div>
       <div className="white-box-page">
         <div className="box-title">Lấy lại mật khẩu</div>
         <p className="box-text" style={{marginBottom:'30px'}}>

@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import './Home.css';
 import DeviceItem from '../../Component/DeviceItem/DeviceItem';
 import { getRequest, postRequest } from '../../hooks/api';
-import { Breadcrumb, Button, Form, Input, Modal, Select, Space } from 'antd';
+import { Breadcrumb, Button, Form, Input, Modal, Pagination, Select, Space } from 'antd';
 
 import { PlusOutlined, DeleteFilled } from '@ant-design/icons'
 import { toast } from 'react-toastify';
@@ -17,6 +17,11 @@ function List() {
   const [ isShowModal, setShowModal ] = useState(false);
   const [ isLocation, setIsLocation ] = useState('All');
   const location = useLocation();
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const pageSize = 10;
+
+  const elementsToDisplay = allSystems.slice((currentPage - 1) * pageSize, currentPage * pageSize);
 
   useEffect(() => {
     if (!localStorage.getItem('accessToken')) {
@@ -92,6 +97,10 @@ function List() {
     ...locations.map(location => (
       {value: location._id, label: `${location.name} - ${location.locationID}`}
   ))]
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
 
   return(
     <div className="device-list page-component">
@@ -193,18 +202,27 @@ function List() {
         </Form>
       </Modal>
       {allSystems.length > 0 ?
-        <div className='grid-container'>
-          {allSystems.map((e, index) => 
-            <DeviceItem
-              key={index}
-              id={e._id}YYYYYY
-              deviceID={e.deviceID}
-              name={e.name}
-              state={e.state}
-              location={e.locationID}
-            />
-          )}
-        </div> :
+        <>
+          <div className='grid-container'>
+            {elementsToDisplay.map((e, index) => 
+              <DeviceItem
+                key={index}
+                id={e._id}YYYYYY
+                deviceID={e.deviceID}
+                name={e.name}
+                state={e.state}
+                location={e.locationID}
+              />
+            )}
+          </div> 
+          <Pagination
+            current={currentPage}
+            // pageSize={pageSize}
+            total={allSystems.length}
+            onChange={handlePageChange}
+            style={{textAlign:'center', marginTop:'20px'}}
+          /> 
+        </> :
         <div className='no-data'>Danh sách trống</div>
       }
     </div>

@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import './Home.css';
 import DeviceItem from '../../Component/DeviceItem/DeviceItem';
 import { getRequest, postRequest } from '../../hooks/api';
-import { Breadcrumb, Button, Dropdown, Form, Input, Modal } from 'antd';
+import { Breadcrumb, Button, Dropdown, Form, Input, Modal, Pagination } from 'antd';
 
 import { PlusOutlined, DeleteFilled, MoreOutlined, SettingOutlined } from '@ant-design/icons'
 import { toast } from 'react-toastify';
@@ -17,6 +17,11 @@ function Location() {
   const [ isShowJoinModal, setShowJoinModal ] = useState(false);
   const [ isShowUpdateModal, setShowUpdateModal ] = useState(false);
   const location = useLocation();
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const pageSize = 10;
+
+  const elementsToDisplay = locations.slice((currentPage - 1) * pageSize, currentPage * pageSize);
 
   useEffect(() => {
     if (!localStorage.getItem('accessToken')) {
@@ -236,6 +241,10 @@ function Location() {
     }
   }
 
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+
   return(
     <div className="device-list page-component">
       <div style={{display:'flex', justifyContent:'space-between', paddingRight:'20px'}}>
@@ -257,36 +266,45 @@ function Location() {
       </div>
       <h1 className='component-title'>Danh sách khu vực</h1>
       {locations.length > 0 ?
-        <div className='grid-container' style={{marginTop:'40px'}}>
-          {locations.map((e, index) => 
-            // <DeviceItem
-            //   key={index}
-            //   id={e._id}YYYYYY
-            //   deviceID={e.deviceID}
-            //   name={e.name}
-            //   state={e.state}
-            // />
-            <div className="device_item" style={{alignItems:'center', cursor:'auto'}}>
-              <div className='text_content'>
-                <div className="device_item_text" style={{marginTop:'0px'}}><b>Khu vực:</b> {e.name}</div>
-                <div className='device_item_text'><b>ID:</b> {e.locationID}</div>
-                <div className='device_item_text'><b>Vai trò:</b> {e.role}</div>
+        <>
+          <div className='grid-container' style={{marginTop:'40px'}}>
+            {elementsToDisplay.map((e, index) => 
+              // <DeviceItem
+              //   key={index}
+              //   id={e._id}YYYYYY
+              //   deviceID={e.deviceID}
+              //   name={e.name}
+              //   state={e.state}
+              // />
+              <div className="device_item" style={{alignItems:'center', cursor:'auto'}}>
+                <div className='text_content'>
+                  <div className="device_item_text" style={{marginTop:'0px'}}><b>Khu vực:</b> {e.name}</div>
+                  <div className='device_item_text'><b>ID:</b> {e.locationID}</div>
+                  <div className='device_item_text'><b>Vai trò:</b> {e.role}</div>
+                </div>
+                <Dropdown
+                  menu={{
+                    items:itemss(e),
+                  }}
+                  trigger={['click']}
+                  placement="bottomRight"
+                  
+                >
+                  <a onClick={StopPropagation} style={{height:'30px', width:'30px'}}>
+                    <div className='more_' ><MoreOutlined /></div>
+                  </a>
+                </Dropdown>
               </div>
-              <Dropdown
-                menu={{
-                  items:itemss(e),
-                }}
-                trigger={['click']}
-                placement="bottomRight"
-                
-              >
-                <a onClick={StopPropagation} style={{height:'30px', width:'30px'}}>
-                  <div className='more_' ><MoreOutlined /></div>
-                </a>
-              </Dropdown>
-            </div>
-          )}
-        </div> :
+            )}
+          </div>
+          <Pagination
+            current={currentPage}
+            // pageSize={pageSize}
+            total={locations.length}
+            onChange={handlePageChange}
+            style={{textAlign:'center', marginTop:'20px'}}
+          />  
+        </> :
         <div className='no-data'>Danh sách trống</div>
       }
       <Modal

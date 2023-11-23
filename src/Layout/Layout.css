@@ -46,16 +46,17 @@
 
 .customer-info-box .customer-name-box .drop-menu {
   /* display: none; */
-  border: 1px solid black;
-  padding: 5px;
-  background-color: white;
+  /* border: 1px solid black; */
+  padding: 10px;
+  /* background-color: white; */
   cursor: pointer;
-  font-size: 20px;
+  font-size: 25px;
   border-radius: 5px;
 }
 
 .customer-info-box .customer-name-box .drop-menu:hover {
-  opacity: 0.8;
+  /* opacity: 0.8; */
+  background-color: white;
 }
 
 .customer-info-box .customer-name-box img {
@@ -86,7 +87,7 @@
   margin: 0px 20px;
   border-bottom: 2px solid white;
   border-top: 2px solid white;
-
+  color: green;
 }
 
 .customer-info-box .customer-info p {
@@ -167,12 +168,16 @@
   }
 
   .customer-info-box .customer-name-box .drop-menu {
-    border: 1px solid black;
-    font-size: 20px;
+    /* border: 1px solid black; */
+    font-size: 25px;
     cursor: pointer;
-    background-color: white;
+    /* background-color: white; */
     border-radius: 5px;
-    padding: 5px;
+    padding: 7.55px;
+  }
+
+  .customer-info-box .customer-name-box .drop-menu:hover {
+    background-color: white;
   }
   
   .customer-info-box .customer-name-box img {
@@ -297,9 +302,9 @@
   .customer-info-box .customer-name-box .drop-menu {
     /* display: none; */
     float: left;
-    border: 1px solid black;
-    padding: 5px;
-    background-color: white;
+    /* border: 1px solid black; */
+    padding: 7.5px;
+    /* background-color: white; */
     font-size: 20px;
     border-radius: 5px;
     cursor: pointer;
@@ -310,7 +315,8 @@
   } */
 
   .customer-info-box .customer-name-box .drop-menu:hover {
-    opacity: 0.8;
+    /* opacity: 0.8; */
+    background-color: white;
   }
   
   .customer-info-box .customer-name-box img {
@@ -343,7 +349,7 @@
     margin: 0px 15px;
     border-bottom: 2px solid white;
     border-top: 2px solid white;
-  
+    color: green;
   }
   
   .customer-info-box .customer-info p {

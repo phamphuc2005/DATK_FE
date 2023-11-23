@@ -4,7 +4,7 @@ import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import './Home.css';
 import DeviceItem from '../../Component/DeviceItem/DeviceItem';
 import { getRequest, postRequest } from '../../hooks/api';
-import { Breadcrumb, Button, Form, Input, Modal } from 'antd';
+import { Breadcrumb, Button, Form, Input, Modal, Pagination } from 'antd';
 
 import { PlusOutlined, DeleteFilled, UndoOutlined, DeleteOutlined } from '@ant-design/icons'
 import { toast } from 'react-toastify';
@@ -14,6 +14,11 @@ function Trash() {
   const [ allSystems, setAllSystems ] = useState([]);
   const location = useLocation();
   const { id: _id } = useParams();
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const pageSize = 10;
+
+  const elementsToDisplay = allSystems.slice((currentPage - 1) * pageSize, currentPage * pageSize);
 
   useEffect(() => {
     if (!localStorage.getItem('accessToken')) {
@@ -81,6 +86,10 @@ function Trash() {
     })
   }
 
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+
   return(
     <div className="device-list page-component">
       <Breadcrumb className='breadcrumb'>
@@ -90,27 +99,36 @@ function Trash() {
       </Breadcrumb>
       <h1 className='component-title'> Thùng rác</h1>
       {allSystems.length > 0 ?
-        <div className='grid_container'>
-          {allSystems.map((e, index) => 
-            // <DeviceItem
-            //   key={index}
-            //   id={e._id}YYYYYY
-            //   deviceID={e.deviceID}
-            //   name={e.name}
-            //   state={e.state}
-            // />
-            <div className="device_item" style={{marginBottom:'0'}}>
-              <div className='text_content'>
-                <div className="device_item_text"><b>ID:</b> {e.deviceID}</div>
-                <div className='device_item_text'><b>Tên thiết bị:</b> {e.name}</div>
+        <>
+          <div className='grid_container'>
+            {elementsToDisplay.map((e, index) => 
+              // <DeviceItem
+              //   key={index}
+              //   id={e._id}YYYYYY
+              //   deviceID={e.deviceID}
+              //   name={e.name}
+              //   state={e.state}
+              // />
+              <div className="device_item" style={{marginBottom:'0'}}>
+                <div className='text_content'>
+                  <div className="device_item_text"><b>ID:</b> {e.deviceID}</div>
+                  <div className='device_item_text'><b>Tên thiết bị:</b> {e.name}</div>
+                </div>
+                <div className='trash-btn'>
+                  <button className='restore-btn' onClick={()=>handleRestore(e)}><UndoOutlined /> Khôi phục</button>
+                  <button className='delete-btn' onClick={()=>handleDelete(e)}><DeleteOutlined /> Xóa vĩnh viễn</button>
+                </div>
               </div>
-              <div className='trash-btn'>
-                <button className='restore-btn' onClick={()=>handleRestore(e)}><UndoOutlined /> Khôi phục</button>
-                <button className='delete-btn' onClick={()=>handleDelete(e)}><DeleteOutlined /> Xóa vĩnh viễn</button>
-              </div>
-            </div>
-          )}
-        </div> :
+            )}
+          </div> 
+          <Pagination
+            current={currentPage}
+            // pageSize={pageSize}
+            total={allSystems.length}
+            onChange={handlePageChange}
+            style={{textAlign:'center', marginTop:'20px'}}
+          />
+        </> :
         <div className='no_data'>Thùng rác trống</div>
       }
     </div>

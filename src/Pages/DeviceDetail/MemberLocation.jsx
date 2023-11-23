@@ -247,7 +247,6 @@ export default function MemberLocation() {
           dataSource={member}
           bordered
           style={{width:'100%'}}
-          pagination={false}
           scroll={{
             x: 100,
           }}
@@ -265,7 +264,6 @@ export default function MemberLocation() {
             dataSource={requests}
             bordered
             style={{width:'100%'}}
-            pagination={false}
             scroll={{
               x: 100,
             }}

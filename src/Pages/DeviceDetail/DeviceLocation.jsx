@@ -293,7 +293,6 @@ export default function DeviceLocation() {
             dataSource={devicess}
             bordered
             style={{width:'100%'}}
-            pagination={false}
             scroll={{
               x: 100,
             }}

@@ -69,8 +69,9 @@ function SignUp() {
   return (
     <>
       <div className="space"></div>
+      <div style={{textAlign:'center', color:'gold', fontSize:'32px', fontWeight:'900'}}>FIRE ALARM SYSTEM</div>
       <div className="white-box-page">
-        <div className="box-title">Đăng kí</div>
+        <div className="box-title">Đăng ký</div>
         <p className="box-text">
           Hãy điền đầy đủ thông tin để đăng ký tài khoản
         </p>

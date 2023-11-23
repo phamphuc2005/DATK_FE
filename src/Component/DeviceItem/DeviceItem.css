@@ -57,7 +57,7 @@
 
 .device_item .trash-btn .restore-btn {
   border: none;
-  background-color: lawngreen;
+  background-color: gold;
   color: white;
   padding: 10px;
   border-radius: 5px;
@@ -190,7 +190,7 @@
   
   .device_item .trash-btn .restore-btn {
     border: none;
-    background-color: lawngreen;
+    background-color: gold;
     color: white;
     padding: 10px;
     border-radius: 5px;

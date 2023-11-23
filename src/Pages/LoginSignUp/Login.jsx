@@ -37,6 +37,7 @@ function Login() {
   return (
     <>
       <div className="space"></div>
+      <div style={{textAlign:'center', color:'gold', fontSize:'32px', fontWeight:'900'}}>FIRE ALARM SYSTEM</div>
       <div className="white-box-page">
         <div className="box-title">Đăng nhập</div>
         <p className="box-text">
@@ -77,7 +78,7 @@ function Login() {
           <div style={{marginBottom:'10px'}}>
             Bạn chưa có tài khoản?&nbsp;
             <a style={{ textDecoration: "underline"}} href="/signup">
-              Đăng kí ngay
+              Đăng ký ngay
             </a>
           </div>
           <div>
