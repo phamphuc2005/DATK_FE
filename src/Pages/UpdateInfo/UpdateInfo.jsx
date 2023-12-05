@@ -109,24 +109,26 @@ export default function UpdateInfo() {
           >
             <Input className="box-input" size="large" />
           </Form.Item>
-          <Button
-            className='box-button'
-            // htmlType='submit'
-            size='large'
-            type="primary" ghost
-            onClick={()=>(navigate('/change-password'))}
-          >
-            Đổi mật khẩu
-          </Button>
-          <Button
-            className='box-button'
-            htmlType='submit'
-            type='primary'
-            size='large'
-            style={{float:'right'}}
-          >
-            Chỉnh sửa
-          </Button>
+          <Form.Item>
+            <Button
+              className='box-button'
+              // htmlType='submit'
+              size='large'
+              type="primary" ghost
+              onClick={()=>(navigate('/change-password'))}
+            >
+              Đổi mật khẩu
+            </Button>
+            <Button
+              className='box-button'
+              htmlType='submit'
+              type='primary'
+              size='large'
+              style={{float:'right'}}
+            >
+              Chỉnh sửa
+            </Button>
+          </Form.Item>
         </Form>
         {/* <p className='change-password'>
           Bạn muốn đổi mật khẩu?&nbsp;

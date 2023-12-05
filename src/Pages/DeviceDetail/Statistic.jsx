@@ -204,6 +204,9 @@ console.log(time);
           dataSource={param}
           bordered
           style={{width:'100%'}}
+          scroll={{
+            x: 100,
+          }}
           pagination={false}
           // title={() => 'Header'}
           // footer={() => 'Footer'}

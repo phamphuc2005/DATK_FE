@@ -288,6 +288,7 @@
     border-radius: 10px;
     /* background-color: rgb(173, 209, 239); */
     background-color: #eee;
+    overflow-y: auto;
   }
   
   .sidebar-content .customer-info-box .customer-name-box {
