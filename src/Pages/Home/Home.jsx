@@ -9,25 +9,11 @@ import { Breadcrumb, Button, Form, Input, Modal } from 'antd';
 import { PlusOutlined, DeleteFilled, UndoOutlined, DeleteOutlined, UserOutlined, DatabaseOutlined, BarChartOutlined, EnvironmentOutlined, FundViewOutlined } from '@ant-design/icons'
 import { toast } from 'react-toastify';
 
-function Trash() {
+function Home() {
   const navigate = useNavigate();
   const [ allSystems, setAllSystems ] = useState([]);
   const location = useLocation();
 
-  useEffect(() => {
-    if (!localStorage.getItem('accessToken')) {
-      navigate('/login');
-    }
-    else {
-      GetAllSystems();
-    }
-  }, [navigate, location]);
-
-  const GetAllSystems = async () => {
-    const data = await getRequest('/get-trash');
-    setAllSystems(await data);
-    console.log(await data);
-  }
 
   return(
     <div className="device-list page-component">
@@ -57,4 +43,4 @@ function Trash() {
   )
 }
 
-export default Trash
+export default Home
