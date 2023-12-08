@@ -25,9 +25,6 @@ export default function SideBar() {
   const onClose = () => {
     setOpen(false);
   };
-  const onChange = (e) => {
-    setPlacement(e.target.value);
-  };
 
   useEffect(() => {
     GetCustomerInfo();
@@ -52,14 +49,18 @@ export default function SideBar() {
 
   const allNotice = async () => {
     const data = await getRequest('/list-notice');
-    setNotice(data)
-    let i = 0;
-    data.forEach(data => {
-      if (data.state === 0) {
-        i++;
-      }
-    });
-    setCount(i)
+    if (data.error) {
+      toast.error(data.error)
+    } else {
+      setNotice(data)
+      let i = 0;
+      data.length > 0 && data.forEach(data => {
+        if (data.state === 0) {
+          i++;
+        }
+      });
+      setCount(i);
+    }
   }
 
   const Logout = () => {
@@ -160,19 +161,18 @@ export default function SideBar() {
           trigger={['click']}
           // placement="bottomRight"
         >
-          <a onClick={(e) => e.preventDefault()}>
+          <a onClick={(e) => e.preventDefault()} title="Menu">
               <div className="drop-menu"><MenuOutlined /></div>
           </a>
         </Dropdown>
         <div >
           <img src='/Image/fire_alarm_logo.png' alt='' onClick={Home}/>
         </div>
-
-            <Badge count={counts} showZero offset={[-5, 10]}>
-              <div className="drop-menu" onClick={showDrawer}>
-              <BellOutlined />
-              </div>
-            </Badge>
+        <Badge count={counts} offset={[-10, 10]}>
+          <div className="drop-menu" onClick={showDrawer} title="Thông báo">
+            <BellOutlined />
+          </div>
+        </Badge>
 
         {/* <div className="customer-name">
           <h1>{customerInfo.name}</h1>
@@ -197,10 +197,12 @@ export default function SideBar() {
         onClose={onClose}
         open={open}
         key={placement}
-        style={{maxWidth:'100%'}}
+        maskClosable={true}
+        mask={false}
+        width={'396px'}
       >
         <div className="notices">
-        {notice.map((e, index) => 
+        {notice.length > 0 && notice.map((e, index) => 
           <div>
             {e.state === 0 ?
             <Badge dot>

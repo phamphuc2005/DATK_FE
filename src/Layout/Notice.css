@@ -38,6 +38,7 @@
 
 .ant-drawer-content {
     border-radius: 10px;
+    border: 1px solid #eee;
 }
 
 .css-dev-only-do-not-override-k83k30.ant-drawer .ant-drawer-body {
@@ -51,3 +52,7 @@
 .css-dev-only-do-not-override-k83k30.ant-drawer .ant-drawer-title {
     font-size: 18px;
 }
+
+/* .css-dev-only-do-not-override-k83k30.ant-drawer .ant-drawer-mask {
+    position: relative;
+} */
