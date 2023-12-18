@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { WarningOutlined, CheckCircleOutlined, CaretLeftOutlined, CaretRightOutlined } from '@ant-design/icons';
-import { Breadcrumb, Button, Input, Modal, Switch, Table } from 'antd';
+import { Breadcrumb, Button, DatePicker, Input, Modal, Select, Space, Switch, Table, Tabs, TimePicker } from 'antd';
 
 import './DeviceDetail.css';
 import './Statistic.css';
@@ -10,6 +10,10 @@ import TempChart from './TempChart';
 import {EditFilled, DeleteOutlined, ReloadOutlined} from '@ant-design/icons'
 import moment from 'moment/moment';
 import Charts from './Chart';
+import { Option } from 'antd/es/mentions';
+import TabPane from 'antd/es/tabs/TabPane';
+
+import Statistic_2 from './Statistic_2';
 
 export default function Statistic() {
   const navigate = useNavigate();
@@ -18,7 +22,6 @@ export default function Statistic() {
   const [ param, setParam ] = useState([]);
   const [ val, setVal ] = useState({});
   const [ sysState, setSysState ] = useState();
-  const boxWarning = useRef(null);
   const [ isShowUpdateName, setIsShowUpdateName ] = useState(false);
   const days = [];
   const [day, setDay] = useState(-7)
@@ -133,29 +136,32 @@ console.log(time);
 
 
   return (
-    <div ref={boxWarning} className="device-detail page-component">
+    <div className="device-detail page-component">
       <Breadcrumb className='breadcrumb' style={{marginLeft: '0px'}}>
         <Breadcrumb.Item><a onClick={()=>(navigate('/'))}>Trang chủ</a></Breadcrumb.Item>
         <Breadcrumb.Item> <a onClick={()=>(navigate('/list-device'))}>Thống kê số liệu</a></Breadcrumb.Item>
         <Breadcrumb.Item className='current'>Số liệu trung bình</Breadcrumb.Item>
       </Breadcrumb>
       <h1 className='component-title'>Số liệu trung bình</h1>
-      <div style={{ display:'flex', justifyContent:'space-between'}}>
-        <Button 
-            className='delete-button' 
-            onClick={()=>{window.location.reload()}}
-            size='middle'
-          ><ReloadOutlined />Làm mới
-        </Button>
-        <div className='time'>
-          <Button size='middle' onClick={()=>prevWeek()}><CaretLeftOutlined /></Button>
-          <div className='time-input'>{dateStrings[0]} - {dateStrings[6]}</div>
-          {day === -7 ?
-          <Button disabled size='middle' ><CaretRightOutlined /></Button> :
-          <Button size='middle' onClick={()=>nextWeek()} ><CaretRightOutlined /></Button>
-          }
+      <Tabs type="card" style={{marginTop:'40px'}}>
+        <TabPane tab="Tuần" key="1">
+        <div style={{ display:'flex', justifyContent:'space-between'}}>
+          <Button 
+              className='delete-button' 
+              onClick={()=>{window.location.reload()}}
+              size='middle'
+              style={{marginTop:'0'}}
+            ><ReloadOutlined />Làm mới
+          </Button>
+          <div className='time'>
+            <Button size='middle' onClick={()=>prevWeek()}><CaretLeftOutlined /></Button>
+            <div className='time-input'>{dateStrings[0]} - {dateStrings[6]}</div>
+            {day === -7 ?
+            <Button disabled size='middle' ><CaretRightOutlined /></Button> :
+            <Button size='middle' onClick={()=>nextWeek()} ><CaretRightOutlined /></Button>
+            }
+          </div>
         </div>
-      </div>
       <div className='device-info' style={{display:'inherit', marginTop:'20px'}}>
         <div style={{display:'flex', justifyContent:'space-between'}}>
           <div>
@@ -273,7 +279,11 @@ console.log(time);
           {/* <h3 style={{color: '#ff0000'}}>Biểu đồ lửa</h3> */}
         </div>
       </div>
-      
+      </TabPane>
+      <TabPane tab="Ngày | Tháng | Năm" key="2">
+        <Statistic_2/>
+      </TabPane>
+    </Tabs>
     </div>
   )
 }

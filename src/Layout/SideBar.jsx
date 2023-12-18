@@ -44,7 +44,7 @@ export default function SideBar() {
     allNotice();
     setInterval(()=>{
       allNotice();
-    }, 30000)
+    }, 15000)
   }, [location]);
 
   const allNotice = async () => {
@@ -180,10 +180,10 @@ export default function SideBar() {
         </div> */}
       </div>
       <div className='customer-info'>
-        <p><b><UserOutlined style={{color:'blue'}}/> <h style={{color:'blue'}}>:</h> {customerInfo.name} </b></p>
-        <p><b><IdcardOutlined style={{color:'blue'}}/> <h style={{color:'blue'}}>:</h> {customerInfo._id} </b></p>
-        <p><b><MailOutlined style={{color:'blue'}}/> <h style={{color:'blue'}}>:</h> {customerInfo.email} </b></p>
-        <p><b><PhoneOutlined style={{color:'blue'}}/> <h style={{color:'blue'}}>:</h> {customerInfo.phone} </b></p>
+        <p><b><UserOutlined style={{color:'blue'}}/> <span style={{color:'blue'}}>:</span> {customerInfo.name} </b></p>
+        <p><b><IdcardOutlined style={{color:'blue'}}/> <span style={{color:'blue'}}>:</span> {customerInfo._id} </b></p>
+        <p><b><MailOutlined style={{color:'blue'}}/> <span style={{color:'blue'}}>:</span> {customerInfo.email} </b></p>
+        <p><b><PhoneOutlined style={{color:'blue'}}/> <span style={{color:'blue'}}>:</span> {customerInfo.phone} </b></p>
       </div>
       <div className='customer-info-button'>
           {/* <a href='/add-device' className='add-device'>Thêm thiết bị</a> */}

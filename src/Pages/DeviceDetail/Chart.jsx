@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Chart from 'react-apexcharts';
 
-export default function Charts({time, val, name, color }) {
+export default function Charts({time, val, name, color, types }) {
   const [isColor, setIsColor] = useState(color)
   const [datalist, setDataList] = useState([])
   const [times, setTimes] = useState([])
@@ -28,7 +28,7 @@ export default function Charts({time, val, name, color }) {
     },
     xaxis: {
       categories: times,
-      title: { text: "Thời gian", style: {color: isColor, fontSize: '14px'} },
+      title: { text: types ? `Thời gian (${types})` : "Thời gian", style: {color: isColor, fontSize: '14px'} },
     },
     yaxis: {
       title: { text: "Giá trị", style: {color: isColor, fontSize: '14px'} },
